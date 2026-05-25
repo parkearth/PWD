@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>臺北市工務局處鼠類防治執行成果系統</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#090d16">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #090d16; color: #e2e8f0; font-family: system-ui, -apple-system, sans-serif; }
+        .glass-panel { background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(12px); border: 1px solid rgba(6, 182, 212, 0.2); }
+        .neon-border { box-shadow: 0 0 15px rgba(6, 182, 212, 0.15); }
+        .status-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; animation: pulse 2s infinite; }
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+        .dot-red { animation-name: pulse-red; }
+        @keyframes pulse-red {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(239, 68, 68, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+        }
+        .arrow-icon { transition: transform 0.3s ease; }
+        .collapsed .arrow-icon { transform: rotate(-90deg); }
+    </style>
+</head>
+<body class="w-screen h-screen overflow-x-hidden flex flex-col items-center justify-start p-4 select-none">
+
+    <div id="auth-container" class="w-full max-w-md m-auto glass-panel p-6 rounded-2xl neon-border flex flex-col space-y-4">
+        <div class="text-center">
+            <h2 class="text-xl font-bold text-cyan-400 tracking-wider">環境衛生大數據治理終端</h2>
+            <p class="text-xs text-slate-400 mt-1">請輸入公務憑證或瀏覽權限代碼</p>
+        </div>
+        <div class="space-y-3">
+            <div>
+                <label class="text-xs text-slate-400 block mb-1">使用者帳號</label>
+                <input type="text" id="input-user" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-cyan-300 focus:outline-none focus:border-cyan-500" placeholder="如：admin 或公務憑證帳號">
+            </div>
+            <div>
+                <label class="text-xs text-slate-400 block mb-1">通關密碼</label>
+                <input type="password" id="input-pass" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-cyan-300 focus:outline-none focus:border-cyan-500" placeholder="請輸入密碼">
+            </div>
+            <button id="btn-login" class="w-full py-2.5 bg-gradient-to-r from-cyan-600 to-blue-600 font-bold rounded-lg text-sm active:scale-95 transition mt-2">安全登入</button>
+        </div>
+        <div id="auth-error" class="text-center text-xs text-red-400 hidden font-bold">⚠️ 驗證失敗：帳號不存在或密碼錯誤</div>
+    </div>
+
+    <div id="dashboard-container" class="hidden w-full max-w-6xl flex flex-col space-y-4">
+        <div class="flex justify-between items-center glass-panel p-4 rounded-xl">
+            <div>
+                <h1 class="text-lg font-bold text-cyan-400">工務局暨所屬各工程處鼠類防治執行成果系統</h1>
+                <p class="text-[10px] text-slate-400">當前使用者：<span id="txt-user-identity" class="text-emerald-400 font-bold">-</span></p>
+            </div>
+            <div class="flex gap-2">
+                <button id="btn-go-admin" class="hidden px-3 py-1.5 bg-purple-950 hover:bg-purple-900 border border-purple-500 text-purple-300 text-xs font-bold rounded-lg transition">🛠️ 進入填報後台</button>
+                <button id="btn-logout" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-300 text-xs font-bold rounded-lg transition">登出</button>
+            </div>
+        </div>
+
+        <div class="glass-panel p-3 rounded-xl flex items-center justify-between">
+            <span class="text-xs text-slate-300 font-bold">📅 統計維度快切：</span>
+            <div class="flex gap-2 bg-slate-900 p-1 rounded-lg border border-slate-800">
+                <button id="range-week" class="px-4 py-1.5 bg-cyan-600 text-white text-xs font-bold rounded-md transition shadow-md">一鍵看週數據</button>
+                <button id="range-month" class="px-4 py-1.5 text-slate-400 hover:text-white text-xs font-bold rounded-md transition">一鍵看月數據</button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <div class="glass-panel p-4 rounded-xl">
+                <div class="text-[10px] text-slate-400">🔍 每日巡查次數</div>
+                <div id="card-inspect" class="text-xl font-bold text-cyan-400 tracking-tight mt-1">0 <span class="text-xs text-slate-400 font-normal">次</span></div>
+            </div>
+            <div class="glass-panel p-4 rounded-xl">
+                <div class="text-[10px] text-slate-400">🗑️ 清理廢棄物</div>
+                <div id="card-waste" class="text-xl font-bold text-emerald-400 tracking-tight mt-1">0 <span class="text-xs text-slate-400 font-normal">噸</span></div>
+            </div>
+            <div class="glass-panel p-4 rounded-xl">
+                <div class="text-[10px] text-slate-400">🕳️ 填補鼠洞數</div>
+                <div id="card-holes" class="text-xl font-bold text-amber-400 tracking-tight mt-1">0 <span class="text-xs text-slate-400 font-normal">個</span></div>
+            </div>
+            <div class="glass-panel p-4 rounded-xl">
+                <div class="text-[10px] text-slate-400">🧪 消毒總面積</div>
+                <div id="card-area" class="text-xl font-bold text-purple-400 tracking-tight mt-1">0 <span class="text-xs text-slate-400 font-normal">㎡</span></div>
+            </div>
+        </div>
+
+        <div class="glass-panel rounded-xl overflow-hidden">
+            <div class="p-3 bg-slate-900/50 border-b border-slate-800 text-xs font-bold text-cyan-400 flex justify-between items-center">
+                <span>📌 工務局處分層成果清單 (<span id="txt-range-label">本週資料</span>)</span>
+                <span class="text-slate-400 text-[11px]">💡 點擊工程處標題可動態折疊/展開明細</span>
+            </div>
+            <div id="accordion-container" class="p-3 space-y-3 max-h-[400px] overflow-y-auto">
+                </div>
+        </div>
+
+        <div class="glass-panel p-4 rounded-xl flex flex-col md:flex-row items-center justify-between gap-3 border border-cyan-500/30">
+            <div class="flex items-center gap-2">
+                <span class="text-lg">📨</span>
+                <div>
+                    <h3 class="text-xs font-bold text-cyan-300">大數據成果公務報表匯出</h3>
+                    <p class="text-[10px] text-slate-400">系統將自動統整當前篩選數據並產生加密 Excel/PDF 報告</p>
+                </div>
+            </div>
+            <div class="flex w-full md:w-auto items-center gap-2">
+                <input type="email" id="export-email" class="bg-slate-900 border border-slate-700 rounded-lg px-3 py-1.5 text-xs text-cyan-300 focus:outline-none focus:border-cyan-500 w-full md:w-64" placeholder="請輸入公務電子信箱 (e-mail)">
+                <button id="btn-export-mail" class="px-4 py-1.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-bold rounded-lg transition shrink-0 active:scale-95 shadow">確認寄出</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="admin-container" class="hidden w-full max-w-lg flex flex-col space-y-4">
+        <div class="flex justify-between items-center glass-panel p-4 rounded-xl">
+            <div>
+                <h1 class="text-md font-bold text-purple-400">🛠️ 填報後台控制管理端</h1>
+                <p class="text-[10px] text-slate-400">防偽識別：資料將自動標記填報人身分</p>
+            </div>
+            <button id="btn-back-dashboard" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold rounded-lg transition">返回數據看板</button>
+        </div>
+
+        <div class="glass-panel p-5 rounded-xl space-y-4">
+            <div class="flex justify-between items-center border-b border-slate-800 pb-2">
+                <h3 class="text-xs font-bold text-cyan-400">➕ 新增公務防治現勘數據</h3>
+                <span class="text-[11px] text-purple-300 bg-purple-950/60 px-2 py-0.5 rounded border border-purple-800">
+                    填報人：<b id="txt-reporter-name">-</b> (<b id="txt-reporter-office">-</b>)
+                </span>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+                <div>
+                    <label class="text-[10px] text-slate-400 block mb-1">回報工程處室 (依帳號自動鎖定)</label>
+                    <select id="form-office" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs text-slate-400 cursor-not-allowed" disabled>
+                        <option value="工務局">工務局</option>
+                        <option value="新工處">新工處</option>
+                        <option value="水利處">水利處</option>
+                        <option value="公園處">公園處</option>
+                        <option value="衛工處">衛工處</option>
+                        <option value="大地處">大地處</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="text-[10px] text-slate-400 block mb-1">責任行政區</label>
+                    <select id="form-district" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs text-white">
+                        <option value="松山區">松山區</option>
+                        <option value="信義區">信義區</option>
+                        <option value="大安區">大安區</option>
+                        <option value="中山區">中山區</option>
+                        <option value="中正區">中正區</option>
+                        <option value="大同區">大同區</option>
+                        <option value="萬華區">萬華區</option>
+                        <option value="文山區">文山區</option>
+                        <option value="南港區">南港區</option>
+                        <option value="內湖區">內湖區</option>
+                        <option value="士林區">士林區</option>
+                        <option value="北投區">北投區</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="text-[10px] text-slate-400 block mb-1">每日巡查次數 (次)</label>
+                    <input type="number" id="form-inspect" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs text-white" value="10">
+                </div>
+                <div>
+                    <label class="text-[10px] text-slate-400 block mb-1">清理廢棄物 (噸)</label>
+                    <input type="number" step="0.001" id="form-waste" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs text-white" value="0.05">
+                </div>
+                <div>
+                    <label class="text-[10px] text-slate-400 block mb-1">填補鼠洞數 (個)</label>
+                    <input type="number" id="form-holes" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs text-white" value="2">
+                </div>
+                <div>
+                    <label class="text-[10px] text-slate-400 block mb-1">環境消毒面積 (㎡)</label>
+                    <input type="number" id="form-area" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs text-white" value="500">
+                </div>
+            </div>
+            <button id="btn-submit-data" class="w-full py-2 bg-purple-600 hover:bg-purple-500 font-bold text-xs rounded-lg active:scale-95 transition">確認審核並寫入大數據庫</button>
+        </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>

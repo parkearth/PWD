@@ -1,0 +1,22 @@
+{
+  "name": "臺北市鼠類防治執行成果系統",
+  "short_name": "鼠類防治系統",
+  "description": "跨局處都市公共衛生監測與 AI 防治熱點研判端",
+  "start_url": "index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#090d16",
+  "theme_color": "#090d16",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/2316/2316719.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/2316/2316719.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
