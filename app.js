@@ -1,4 +1,3 @@
-// 💡 從外部獨立設定檔匯入使用者名冊
 import { USER_REGISTRY } from './users.js';
 
 function getTodayString() {
@@ -9,78 +8,84 @@ function getTodayString() {
     return `${yyyy}-${mm}-${dd}`;
 }
 
-const BASE_DATABASE = [
-    { office: '工務局', district: '中正區', inspect: 3, waste: 0.01, holes: 0, area: 0, lastUpdated: '2026-05-17' },
-    { office: '工務局', district: '大同區', inspect: 0, waste: 0.00, holes: 0, area: 0, lastUpdated: '2026-05-17' },
-    { office: '工務局', district: '萬華區', inspect: 0, waste: 0.00, holes: 0, area: 0, lastUpdated: '2026-05-17' },
-    { office: '新工處', district: '松山區', inspect: 8, waste: 0.001, holes: 0, area: 0, lastUpdated: '2026-05-17' },
-    { office: '新工處', district: '信義區', inspect: 14, waste: 0.001, holes: 0, area: 0, lastUpdated: '2026-05-17' },
-    { office: '新工處', district: '大安區', inspect: 5, waste: 0.093, holes: 0, area: 0, lastUpdated: '2026-05-17' },
-    { office: '新工處', district: '中山區', inspect: 4, waste: 2.010, holes: 0, area: 16, lastUpdated: '2026-05-17' },
-    { office: '新工處', district: '中正區', inspect: 15, waste: 0.015, holes: 0, area: 0, lastUpdated: '2026-05-17' },
-    { office: '新工處', district: '大同區', inspect: 7, waste: 6.054, holes: 0, area: 0, lastUpdated: '2026-05-17' },
-    { office: '新工處', district: '萬華區', inspect: 6, waste: 0.078, holes: 0, area: 0, lastUpdated: '2026-05-17' },
-    { office: '新工處', district: '文山區', inspect: 6, waste: 0.152, holes: 0, area: 1, lastUpdated: '2026-05-17' },
-    { office: '新工處', district: '南港區', inspect: 4, waste: 0.010, holes: 0, area: 0, lastUpdated: '2026-05-17' },
-    { office: '新工處', district: '內湖區', inspect: 13, waste: 0.109, holes: 0, area: 1, lastUpdated: '2026-05-17' },
-    { office: '新工處', district: '士林區', inspect: 6, waste: 0.002, holes: 0, area: 0, lastUpdated: '2026-05-17' },
-    { office: '新工處', district: '北投區', inspect: 9, waste: 0.080, holes: 0, area: 2, lastUpdated: '2026-05-17' },
-    { office: '水利處', district: '松山區', inspect: 6, waste: 0.000, holes: 0, area: 6, lastUpdated: '2026-05-17' },
-    { office: '水利處', district: '信義區', inspect: 0, waste: 0.000, holes: 0, area: 0, lastUpdated: '2026-05-17' },
-    { office: '水利處', district: '大安區', inspect: 0, waste: 0.000, holes: 0, area: 0, lastUpdated: '2026-05-17' },
-    { office: '水利處', district: '中山區', inspect: 9, waste: 2.218, holes: 0, area: 12, lastUpdated: '2026-05-17' },
-    { office: '水利處', district: '中正區', inspect: 3, waste: 2.218, holes: 0, area: 0, lastUpdated: '2026-05-17' },
-    { office: '水利處', district: '大同區', inspect: 3, waste: 2.218, holes: 0, area: 6, lastUpdated: '2026-05-17' },
-    { office: '水利處', district: '萬華區', inspect: 15, waste: 2.218, holes: 0, area: 15, lastUpdated: '2026-05-17' },
-    { office: '水利處', district: '文山區', inspect: 12, waste: 2.222, holes: 0, area: 6, lastUpdated: '2026-05-17' },
-    { office: '水利處', district: '南港區', inspect: 6, waste: 2.218, holes: 0, area: 6, lastUpdated: '2026-05-17' },
-    { office: '水利處', district: '內湖區', inspect: 9, waste: 2.218, holes: 0, area: 60, lastUpdated: '2026-05-17' },
-    { office: '水利處', district: '士林區', inspect: 15, waste: 2.220, holes: 0, area: 15, lastUpdated: '2026-05-17' },
-    { office: '水利處', district: '北投區', inspect: 6, waste: 0.000, holes: 0, area: 6, lastUpdated: '2026-05-17' },
-    { office: '公園處', district: '松山區', inspect: 72, waste: 5.760, holes: 6, area: 0, lastUpdated: '2026-05-17' },
-    { office: '公園處', district: '信義區', inspect: 189, waste: 7.200, holes: 0, area: 170, lastUpdated: '2026-05-17' },
-    { office: '公園處', district: '大安區', inspect: 96, waste: 10.200, holes: 0, area: 980, lastUpdated: '2026-05-17' },
-    { office: '公園處', district: '中山區', inspect: 138, waste: 10.170, holes: 12, area: 63297, lastUpdated: '2026-05-17' },
-    { office: '公園處', district: '中正區', inspect: 42, waste: 6.000, holes: 7, area: 380, lastUpdated: '2026-05-17' },
-    { office: '公園處', district: '大同區', inspect: 42, waste: 4.650, holes: 3, area: 38906, lastUpdated: '2026-05-17' },
-    { office: '公園處', district: '萬華區', inspect: 144, waste: 5.400, holes: 0, area: 320, lastUpdated: '2026-05-17' },
-    { office: '公園處', district: '文山區', inspect: 258, waste: 7.230, holes: 0, area: 50, lastUpdated: '2026-05-17' },
-    { office: '公園處', district: '南港區', inspect: 132, waste: 4.050, holes: 0, area: 40, lastUpdated: '2026-05-17' },
-    { office: '公園處', district: '內湖區', inspect: 117, waste: 8.100, holes: 0, area: 370, lastUpdated: '2026-05-17' },
-    { office: '公園處', district: '士林區', inspect: 294, waste: 14.400, holes: 1, area: 160, lastUpdated: '2026-05-17' },
-    { office: '公園處', district: '北投區', inspect: 360, waste: 19.500, holes: 0, area: 20, lastUpdated: '2026-05-17' },
-    { office: '衛工處', district: '大同區', inspect: 18, waste: 0.090, holes: 0, area: 12, lastUpdated: '2026-05-17' },
-    { office: '衛工處', district: '內湖區', inspect: 48, waste: 0.080, holes: 0, area: 0, lastUpdated: '2026-05-17' },
-    { office: '衛工處', district: '北投區', inspect: 66, waste: 0.170, holes: 0, area: 12, lastUpdated: '2026-05-17' },
-    { office: '大地處', district: '信義區', inspect: 0, waste: 0.900, holes: 0, area: 0, lastUpdated: '2026-05-17' },
-    { office: '大地處', district: '南港區', inspect: 39, waste: 0.000, holes: 0, area: 0, lastUpdated: '2026-05-17' },
-    { office: '大地處', district: '士林區', inspect: 3, waste: 0.000, holes: 36, area: 0, lastUpdated: '2026-05-17' },
-    { office: '大地處', district: '北投區', inspect: 3, waste: 0.000, holes: 0, area: 0, lastUpdated: '2026-05-17' }
+// 🗄️ v2.0 歷史流水帳結構 (完整保留 46 筆基礎數據)
+const BASE_LOGS = [
+    { date: '2026-05-17', reporter: '初期建檔', office: '工務局', district: '中正區', inspect: 3, waste: 0.01, holes: 0, area: 0 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '工務局', district: '大同區', inspect: 0, waste: 0.00, holes: 0, area: 0 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '工務局', district: '萬華區', inspect: 0, waste: 0.00, holes: 0, area: 0 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '新工處', district: '松山區', inspect: 8, waste: 0.001, holes: 0, area: 0 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '新工處', district: '信義區', inspect: 14, waste: 0.001, holes: 0, area: 0 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '新工處', district: '大安區', inspect: 5, waste: 0.093, holes: 0, area: 0 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '新工處', district: '中山區', inspect: 4, waste: 2.010, holes: 0, area: 16 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '新工處', district: '中正區', inspect: 15, waste: 0.015, holes: 0, area: 0 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '新工處', district: '大同區', inspect: 7, waste: 6.054, holes: 0, area: 0 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '新工處', district: '萬華區', inspect: 6, waste: 0.078, holes: 0, area: 0 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '新工處', district: '文山區', inspect: 6, waste: 0.152, holes: 0, area: 1 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '新工處', district: '南港區', inspect: 4, waste: 0.010, holes: 0, area: 0 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '新工處', district: '內湖區', inspect: 13, waste: 0.109, holes: 0, area: 1 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '新工處', district: '士林區', inspect: 6, waste: 0.002, holes: 0, area: 0 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '新工處', district: '北投區', inspect: 9, waste: 0.080, holes: 0, area: 2 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '水利處', district: '松山區', inspect: 6, waste: 0.000, holes: 0, area: 6 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '水利處', district: '信義區', inspect: 0, waste: 0.000, holes: 0, area: 0 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '水利處', district: '大安區', inspect: 0, waste: 0.000, holes: 0, area: 0 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '水利處', district: '中山區', inspect: 9, waste: 2.218, holes: 0, area: 12 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '水利處', district: '中正區', inspect: 3, waste: 2.218, holes: 0, area: 0 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '水利處', district: '大同區', inspect: 3, waste: 2.218, holes: 0, area: 6 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '水利處', district: '萬華區', inspect: 15, waste: 2.218, holes: 0, area: 15 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '水利處', district: '文山區', inspect: 12, waste: 2.222, holes: 0, area: 6 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '水利處', district: '南港區', inspect: 6, waste: 2.218, holes: 0, area: 6 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '水利處', district: '內湖區', inspect: 9, waste: 2.218, holes: 0, area: 60 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '水利處', district: '士林區', inspect: 15, waste: 2.220, holes: 0, area: 15 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '水利處', district: '北投區', inspect: 6, waste: 0.000, holes: 0, area: 6 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '公園處', district: '松山區', inspect: 72, waste: 5.760, holes: 6, area: 0 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '公園處', district: '信義區', inspect: 189, waste: 7.200, holes: 0, area: 170 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '公園處', district: '大安區', inspect: 96, waste: 10.200, holes: 0, area: 980 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '公園處', district: '中山區', inspect: 138, waste: 10.170, holes: 12, area: 63297 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '公園處', district: '中正區', inspect: 42, waste: 6.000, holes: 7, area: 380 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '公園處', district: '大同區', inspect: 42, waste: 4.650, holes: 3, area: 38906 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '公園處', district: '萬華區', inspect: 144, waste: 5.400, holes: 0, area: 320 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '公園處', district: '文山區', inspect: 258, waste: 7.230, holes: 0, area: 50 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '公園處', district: '南港區', inspect: 132, waste: 4.050, holes: 0, area: 40 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '公園處', district: '內湖區', inspect: 117, waste: 8.100, holes: 0, area: 370 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '公園處', district: '士林區', inspect: 294, waste: 14.400, holes: 1, area: 160 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '公園處', district: '北投區', inspect: 360, waste: 19.500, holes: 0, area: 20 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '衛工處', district: '大同區', inspect: 18, waste: 0.090, holes: 0, area: 12 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '衛工處', district: '內湖區', inspect: 48, waste: 0.080, holes: 0, area: 0 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '衛工處', district: '北投區', inspect: 66, waste: 0.170, holes: 0, area: 12 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '大地處', district: '信義區', inspect: 0, waste: 0.900, holes: 0, area: 0 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '大地處', district: '南港區', inspect: 39, waste: 0.000, holes: 0, area: 0 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '大地處', district: '士林區', inspect: 3, waste: 0.000, holes: 36, area: 0 },
+    { date: '2026-05-17', reporter: '初期建檔', office: '大地處', district: '北投區', inspect: 3, waste: 0.000, holes: 0, area: 0 }
 ];
 
-// 保存當前登入者個人資訊
 let currentUser = { isAuthenticated: false, account: null, name: null, office: null, role: null };
 let currentRange = 'WEEK'; 
 
 class PestControlSystem {
     constructor() {
-        this.db = [...BASE_DATABASE];
+        this.logs = [...BASE_LOGS]; // 使用 Log 陣列
         this.cacheDOM();
         this.bindEvents();
+        // 預設日期為今天
+        this.historyDatePicker.value = getTodayString();
     }
 
     cacheDOM() {
+        // 架構容器
         this.authCont = document.getElementById('auth-container');
-        this.dashCont = document.getElementById('dashboard-container');
-        this.adminCont = document.getElementById('admin-container');
+        this.appWrapper = document.getElementById('app-wrapper');
+        this.navTabs = document.querySelectorAll('.nav-tab');
+        this.tabAdmin = document.getElementById('tab-admin');
+        
+        // 登入相關
         this.inputUser = document.getElementById('input-user');
         this.inputPass = document.getElementById('input-pass');
         this.btnLogin = document.getElementById('btn-login');
         this.authError = document.getElementById('auth-error');
-        this.txtUserIdentity = document.getElementById('txt-user-identity'); // 看板上的姓名顯示
-        this.btnGoAdmin = document.getElementById('btn-go-admin');
-        this.btnBackDash = document.getElementById('btn-back-dashboard');
+        this.txtUserIdentity = document.getElementById('txt-user-identity');
         this.btnLogout = document.getElementById('btn-logout');
+        
+        // 總覽頁面 (Dashboard)
         this.rangeWeek = document.getElementById('range-week');
         this.rangeMonth = document.getElementById('range-month');
         this.txtRangeLabel = document.getElementById('txt-range-label');
@@ -89,8 +94,13 @@ class PestControlSystem {
         this.cardHoles = document.getElementById('card-holes');
         this.cardArea = document.getElementById('card-area');
         this.accordionContainer = document.getElementById('accordion-container');
+        this.btnExportCsv = document.getElementById('btn-export-csv');
+
+        // 月曆查詢頁面 (History)
+        this.historyDatePicker = document.getElementById('history-date-picker');
+        this.historyTableBody = document.getElementById('history-table-body');
         
-        // 填報頁面與識別元件
+        // 填報頁面 (Admin)
         this.txtReporterName = document.getElementById('txt-reporter-name');
         this.txtReporterOffice = document.getElementById('txt-reporter-office');
         this.formOffice = document.getElementById('form-office');
@@ -100,28 +110,32 @@ class PestControlSystem {
         this.formHoles = document.getElementById('form-holes');
         this.formArea = document.getElementById('form-area');
         this.btnSubmit = document.getElementById('btn-submit-data');
-
-        // 郵寄匯出元件
-        this.exportEmail = document.getElementById('export-email');
-        this.btnExportMail = document.getElementById('btn-export-mail');
     }
 
     bindEvents() {
         this.btnLogin.addEventListener('click', () => this.handleLogin());
         this.btnLogout.addEventListener('click', () => this.handleLogout());
-        this.btnGoAdmin.addEventListener('click', () => this.switchView('ADMIN'));
-        this.btnBackDash.addEventListener('click', () => this.switchView('DASHBOARD'));
+        
+        // 底部導覽列切換
+        this.navTabs.forEach(tab => {
+            tab.addEventListener('click', (e) => {
+                const target = e.currentTarget.getAttribute('data-target');
+                this.switchTab(target);
+            });
+        });
+
         this.rangeWeek.addEventListener('click', () => this.switchRange('WEEK'));
         this.rangeMonth.addEventListener('click', () => this.switchRange('MONTH'));
         this.btnSubmit.addEventListener('click', () => this.handleFormSubmit());
-        this.btnExportMail.addEventListener('click', () => this.handleEmailExport());
+        this.btnExportCsv.addEventListener('click', () => this.handleCsvExport());
+        
+        // 日期變更時即時重繪
+        this.historyDatePicker.addEventListener('change', () => this.renderHistory());
     }
 
     handleLogin() {
         const inputAcct = this.inputUser.value.trim();
         const inputPwd = this.inputPass.value.trim();
-
-        // 💡 核心邏輯升級：改自外部 Registry 讀取，免修程式
         const matchedUser = USER_REGISTRY[inputAcct];
 
         if (matchedUser && matchedUser.pass === inputPwd) {
@@ -137,40 +151,48 @@ class PestControlSystem {
         }
 
         this.authCont.classList.add('hidden');
-        this.dashCont.classList.remove('hidden');
+        this.appWrapper.classList.remove('hidden');
+        this.appWrapper.classList.add('flex');
         
-        // 🌟 自動加入個人識別資訊至看板頂部
-        this.txtUserIdentity.innerText = `${currentUser.name} / ${currentUser.office} [${currentUser.role === 'ADMIN' ? '管理員' : '唯讀長官'}]`;
-        this.btnGoAdmin.classList.toggle('hidden', currentUser.role !== 'ADMIN');
+        this.txtUserIdentity.innerText = `${currentUser.name} / ${currentUser.office} [${currentUser.role === 'ADMIN' ? '管理員' : '唯讀'}]`;
+        
+        // 依權限開放填報 Tab
+        if (currentUser.role === 'ADMIN') {
+            this.tabAdmin.classList.remove('hidden');
+            this.txtReporterName.innerText = currentUser.name;
+            this.txtReporterOffice.innerText = currentUser.office;
+            this.formOffice.value = currentUser.office;
+        } else {
+            this.tabAdmin.classList.add('hidden');
+        }
 
         if (navigator.vibrate) navigator.vibrate(50);
-        this.renderDashboard();
+        this.switchTab('dashboard'); // 登入預設進入看板
     }
 
     handleLogout() {
         currentUser = { isAuthenticated: false, account: null, name: null, office: null, role: null };
         this.inputUser.value = '';
         this.inputPass.value = '';
-        this.exportEmail.value = '';
-        this.dashCont.classList.add('hidden');
-        this.adminCont.classList.add('hidden');
+        this.appWrapper.classList.add('hidden');
+        this.appWrapper.classList.remove('flex');
         this.authCont.classList.remove('hidden');
     }
 
-    switchView(target) {
-        if (target === 'ADMIN') {
-            this.dashCont.classList.add('hidden');
-            this.adminCont.classList.remove('hidden');
-            
-            // 🌟 填報頁面：動態綁定、鎖定填報人的個人資料與處室權限（防人為填錯）
-            this.txtReporterName.innerText = currentUser.name;
-            this.txtReporterOffice.innerText = currentUser.office;
-            this.formOffice.value = currentUser.office; 
-        } else {
-            this.adminCont.classList.add('hidden');
-            this.dashCont.classList.remove('hidden');
-            this.renderDashboard();
-        }
+    // 🌟 v2.0 Tab Bar 切換邏輯
+    switchTab(tabId) {
+        // 隱藏所有頁面
+        document.querySelectorAll('.page-section').forEach(page => page.classList.add('hidden'));
+        // 移除所有 Tab 活躍狀態
+        this.navTabs.forEach(tab => tab.classList.remove('tab-active'));
+        
+        // 顯示目標
+        document.getElementById(`page-${tabId}`).classList.remove('hidden');
+        document.querySelector(`.nav-tab[data-target="${tabId}"]`).classList.add('tab-active');
+
+        if (tabId === 'dashboard') this.renderDashboard();
+        if (tabId === 'history') this.renderHistory();
+        if (navigator.vibrate) navigator.vibrate(20);
     }
 
     switchRange(range) {
@@ -182,55 +204,60 @@ class PestControlSystem {
         } else {
             this.rangeMonth.className = "px-4 py-1.5 bg-cyan-600 text-white text-xs font-bold rounded-md transition shadow-md";
             this.rangeWeek.className = "px-4 py-1.5 text-slate-400 hover:text-white text-xs font-bold rounded-md transition";
-            this.txtRangeLabel.innerText = "本月累計統計數據 (一鍵換算週加權)";
+            this.txtRangeLabel.innerText = "本月累計統計數據 (換算)";
         }
-        if (navigator.vibrate) navigator.vibrate(30);
         this.renderDashboard();
     }
 
+    // 🌟 Dashboard: 針對流水帳進行動態 Group By 累加計算，並抓取最後更新日期
     renderDashboard() {
         const multiplier = currentRange === 'WEEK' ? 1.0 : 4.34;
-        const todayStr = getTodayString();
-
-        let totalInspect = 0;
-        let totalWaste = 0;
-        let totalHoles = 0;
-        let totalArea = 0;
-
+        let totalInspect = 0, totalWaste = 0, totalHoles = 0, totalArea = 0;
         const groupedData = {};
-        this.db.forEach(item => {
-            if (!groupedData[item.office]) groupedData[item.office] = [];
-            groupedData[item.office].push(item);
+
+        this.logs.forEach(log => {
+            if (!groupedData[log.office]) groupedData[log.office] = {};
+            if (!groupedData[log.office][log.district]) {
+                groupedData[log.office][log.district] = { inspect: 0, waste: 0, holes: 0, area: 0, lastUpdated: '1970-01-01' };
+            }
+            
+            let target = groupedData[log.office][log.district];
+            target.inspect += log.inspect;
+            target.waste += log.waste;
+            target.holes += log.holes;
+            target.area += log.area;
+            
+            // 抓取最後一次回報的日期
+            if (new Date(log.date) > new Date(target.lastUpdated)) {
+                target.lastUpdated = log.date;
+            }
         });
 
         this.accordionContainer.innerHTML = '';
 
         Object.keys(groupedData).forEach((officeName, index) => {
-            const records = groupedData[officeName];
+            const districtMap = groupedData[officeName];
             let officeInspect = 0, officeWaste = 0, officeHoles = 0, officeArea = 0;
             let tableRowsHtml = '';
 
-            records.forEach(item => {
-                const inspect = Math.round(item.inspect * multiplier);
-                const waste = parseFloat((item.waste * multiplier).toFixed(3));
-                const holes = Math.round(item.holes * multiplier);
-                const area = Math.round(item.area * multiplier);
+            Object.keys(districtMap).forEach(distName => {
+                const data = districtMap[distName];
+                const inspect = Math.round(data.inspect * multiplier);
+                const waste = parseFloat((data.waste * multiplier).toFixed(3));
+                const holes = Math.round(data.holes * multiplier);
+                const area = Math.round(data.area * multiplier);
 
                 officeInspect += inspect; officeWaste += waste; officeHoles += holes; officeArea += area;
                 totalInspect += inspect; totalWaste += waste; totalHoles += holes; totalArea += area;
 
-                let statusTag = item.lastUpdated === todayStr 
-                    ? `<span class="flex items-center gap-1 text-emerald-400 bg-emerald-950/40 px-1.5 py-0.5 rounded text-[11px]"><span class="status-dot bg-emerald-500"></span>今日更新</span>`
-                    : `<span class="flex items-center gap-1 text-red-400 bg-red-950/40 px-1.5 py-0.5 rounded text-[11px]"><span class="status-dot dot-red bg-red-500"></span>未更新</span>`;
-
                 tableRowsHtml += `
                     <tr class="hover:bg-slate-800/40 transition border-b border-slate-800/30">
-                        <td class="p-2.5 font-bold text-slate-300">${item.district}</td>
+                        <td class="p-2.5 font-bold text-slate-300">${distName}</td>
                         <td class="p-2.5 font-mono text-cyan-400">${inspect}</td>
                         <td class="p-2.5 font-mono text-emerald-400">${waste.toFixed(3)}</td>
                         <td class="p-2.5 font-mono text-amber-500">${holes}</td>
                         <td class="p-2.5 font-mono text-purple-400">${area.toLocaleString()}</td>
-                        <td class="p-2.5">${statusTag}</td>
+                        <td class="p-2.5 text-xs text-slate-400 font-mono tracking-tighter">${data.lastUpdated}</td>
                     </tr>
                 `;
             });
@@ -244,7 +271,7 @@ class PestControlSystem {
                 <div class="accordion-trigger bg-slate-900/60 hover:bg-slate-900 px-4 py-3 flex items-center justify-between cursor-pointer border-b border-slate-800 transition">
                     <div class="flex items-center gap-3">
                         <span class="arrow-icon text-cyan-400 font-bold block transform">▼</span>
-                        <h2 class="font-bold text-sm tracking-wide text-cyan-400">${officeName} <span class="text-xs text-slate-500 font-normal">(${records.length}個區域)</span></h2>
+                        <h2 class="font-bold text-sm tracking-wide text-cyan-400">${officeName} <span class="text-xs text-slate-500 font-normal">(${Object.keys(districtMap).length}區)</span></h2>
                     </div>
                     <div class="flex gap-4 text-[11px] text-slate-400 hidden sm:flex">
                         <span>巡查: <b class="text-slate-200">${officeInspect}</b></span>
@@ -258,11 +285,11 @@ class PestControlSystem {
                         <thead class="bg-slate-900/40 text-slate-400 border-b border-slate-800">
                             <tr>
                                 <th class="p-2.5">行政區</th>
-                                <th class="p-2.5">巡查 (次)</th>
-                                <th class="p-2.5">廢棄物 (噸)</th>
-                                <th class="p-2.5">補鼠洞 (個)</th>
-                                <th class="p-2.5">消毒面積 (㎡)</th>
-                                <th class="p-2.5">更新狀態</th>
+                                <th class="p-2.5">總巡查(次)</th>
+                                <th class="p-2.5">總廢棄物(噸)</th>
+                                <th class="p-2.5">總鼠洞(個)</th>
+                                <th class="p-2.5">總消毒(㎡)</th>
+                                <th class="p-2.5">最後更新日期</th>
                             </tr>
                         </thead>
                         <tbody>${tableRowsHtml}</tbody>
@@ -275,7 +302,6 @@ class PestControlSystem {
                 const isHidden = content.classList.toggle('hidden');
                 accordionBox.classList.toggle('collapsed', isHidden);
             });
-
             this.accordionContainer.appendChild(accordionBox);
         });
 
@@ -285,6 +311,34 @@ class PestControlSystem {
         this.cardArea.innerHTML = `${Math.round(totalArea).toLocaleString()} <span class="text-xs text-slate-400 font-normal">㎡</span>`;
     }
 
+    // 🌟 History: 月曆過濾渲染功能
+    renderHistory() {
+        const targetDate = this.historyDatePicker.value;
+        const filteredLogs = this.logs.filter(log => log.date === targetDate);
+        
+        this.historyTableBody.innerHTML = '';
+        
+        if (filteredLogs.length === 0) {
+            this.historyTableBody.innerHTML = `<tr><td colspan="7" class="p-6 text-center text-slate-500 font-bold">此日期暫無填報紀錄</td></tr>`;
+            return;
+        }
+
+        filteredLogs.forEach(log => {
+            this.historyTableBody.innerHTML += `
+                <tr class="hover:bg-slate-800/40 transition">
+                    <td class="p-2.5 font-bold text-cyan-400">${log.office}</td>
+                    <td class="p-2.5 text-slate-300">${log.district}</td>
+                    <td class="p-2.5 text-purple-400">${log.reporter}</td>
+                    <td class="p-2.5 text-right font-mono">${log.inspect}</td>
+                    <td class="p-2.5 text-right font-mono">${log.waste.toFixed(3)}</td>
+                    <td class="p-2.5 text-right font-mono">${log.holes}</td>
+                    <td class="p-2.5 text-right font-mono">${log.area.toLocaleString()}</td>
+                </tr>
+            `;
+        });
+    }
+
+    // 🌟 Admin: 以 append 取代覆蓋
     handleFormSubmit() {
         const office = this.formOffice.value;
         const dist = this.formDistrict.value;
@@ -293,51 +347,56 @@ class PestControlSystem {
         const hol = parseInt(this.formHoles.value) || 0;
         const are = parseInt(this.formArea.value) || 0;
 
-        let target = this.db.find(item => item.office === office && item.district === dist);
-        if (!target) {
-            target = { office, district: dist, inspect: 0, waste: 0, holes: 0, area: 0, lastUpdated: '' };
-            this.db.push(target);
-        }
-
-        target.inspect += ins; target.waste += was; target.holes += hol; target.area += are;
-        target.lastUpdated = getTodayString();
-        
-        // 標記是誰更新的
-        alert(`驗證成功！數據已安全寫入。\n記錄核配人：[${currentUser.name}]`);
-        this.switchView('DASHBOARD');
-    }
-
-    // 🌟 新增需求：電子郵件匯出資料處理邏輯
-    handleEmailExport() {
-        const email = this.exportEmail.value.trim();
-        
-        // 基本 Email 正則防呆驗證
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!email || !emailPattern.test(email)) {
-            alert("⚠️ 請輸入格式正確的公務電子信箱！");
-            return;
-        }
-
-        // 統整目前大數據看板上的數字進行打包模擬
-        const dataSummary = {
-            range: currentRange,
-            exporter: currentUser.name,
-            timestamp: new Date().toLocaleString()
+        const newLog = {
+            date: getTodayString(),
+            reporter: currentUser.name,
+            office: office,
+            district: dist,
+            inspect: ins,
+            waste: was,
+            holes: hol,
+            area: are
         };
 
-        // 顯示封包發送動畫回饋
-        this.btnExportMail.innerText = "⚡ 報表產製中...";
-        this.btnExportMail.disabled = true;
+        this.logs.push(newLog);
+        
+        alert(`驗證成功！資料已安全保存至流水帳。\n填報日期：${newLog.date}`);
+        // 切換回日曆查詢並顯示剛剛填報的那一天
+        this.historyDatePicker.value = newLog.date;
+        this.switchTab('history');
+    }
 
-        setTimeout(() => {
-            alert(`📨 匯出成功！\n系統已自動將「${dataSummary.range === 'WEEK' ? '本週成果' : '本月累計'}」之工務大數據統計報表檔案加密產出，並成功寄送至：\n👉 ${email}\n\n請收件人注意查收公務信箱。`);
-            this.btnExportMail.innerText = "確認寄出";
-            this.btnExportMail.disabled = false;
-            this.exportEmail.value = ''; // 清空輸入框
-        }, 1200);
+    // 🌟 CSV 匯出功能 (取代 Email)
+    handleCsvExport() {
+        let csvContent = "\uFEFF填報日期,填報人,工程處,行政區,巡查次數(次),廢棄物(噸),填補鼠洞數(個),消毒面積(㎡)\n";
+        
+        this.logs.forEach(log => {
+            csvContent += `${log.date},${log.reporter},${log.office},${log.district},${log.inspect},${log.waste.toFixed(3)},${log.holes},${log.area}\n`;
+        });
+        
+        try {
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement("a");
+            const url = URL.createObjectURL(blob);
+            const timeStamp = new Date().toISOString().slice(0,10).replace(/-/g,"");
+            
+            link.setAttribute("href", url);
+            link.setAttribute("download", `公務流水帳報表_${timeStamp}.csv`);
+            link.style.visibility = 'hidden';
+            
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            if (navigator.vibrate) navigator.vibrate(50);
+            alert(`📥 下載成功！\n共匯出 ${this.logs.length} 筆完整歷史軌跡。`);
+        } catch (err) {
+            console.error(err);
+            alert("⚠️ 瀏覽器安全性阻擋了下載操作。");
+        }
     }
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-    const app = new PestControlSystem();
+    window.app = new PestControlSystem();
 });
