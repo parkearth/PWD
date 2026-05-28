@@ -1,22 +1,72 @@
 {
-  "name": "臺北市鼠類防治執行成果系統",
-  "short_name": "鼠類防治系統",
-  "description": "跨局處都市公共衛生監測與 AI 防治熱點研判端",
-  "start_url": "index.html",
+  "name": "臺北市政府工務局鼠類防治稽查報告",
+  "short_name": "鼠類防治稽查",
+  "description": "臺北市政府工務局鼠類防治稽查報告線上填報與資料導出系統",
+  "start_url": "./index.html",
   "display": "standalone",
-  "orientation": "portrait",
-  "background_color": "#090d16",
-  "theme_color": "#090d16",
+  "orientation": "portrait-primary",
+  "background_color": "#0f172a",
+  "theme_color": "#1e40af",
+  "lang": "zh-TW",
+  "dir": "ltr",
+  "categories": ["government", "productivity", "utilities"],
   "icons": [
     {
-      "src": "https://cdn-icons-png.flaticon.com/512/2316/2316719.png",
-      "sizes": "192x192",
-      "type": "image/png"
+      "src": "icons/icon-72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
-      "src": "https://cdn-icons-png.flaticon.com/512/2316/2316719.png",
+      "src": "icons/icon-96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "新增稽查報告",
+      "short_name": "新增報告",
+      "description": "快速開始新的稽查報告",
+      "url": "./index.html?action=new",
+      "icons": [{ "src": "icons/icon-96.png", "sizes": "96x96" }]
     }
   ]
 }
