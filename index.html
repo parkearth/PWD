@@ -1197,7 +1197,23 @@ function initDB() {
   });
 }
 const tx = (m='readonly') => db.transaction(STORE, m).objectStore(STORE);
-const saveRpt  = d  => new Promise((r,j)=>{ const q=d.id?tx('readwrite').put(d):tx('readwrite').add(d); q.onsuccess=()=>r(q.result); q.onerror=()=>j(q.error); });
+const saveRpt = d => new Promise((r,j)=>{
+  try {
+    // 修正 IndexedDB keyPath 錯誤：
+    // 若 id 不存在、為空字串、null 或 undefined，自動產生合法主鍵
+    if (!d.id || d.id === '' || d.id === null || d.id === undefined) {
+      d.id = Date.now() + '-' + Math.random().toString(36).slice(2, 10);
+    }
+
+    const store = tx('readwrite');
+    const q = store.put(d);
+
+    q.onsuccess = () => r(q.result);
+    q.onerror = () => j(q.error);
+  } catch(err) {
+    j(err);
+  }
+});
 const getAllRpt = () => new Promise((r,j)=>{ const q=tx().getAll(); q.onsuccess=()=>r(q.result.reverse()); q.onerror=()=>j(q.error); });
 const getRpt   = id => new Promise((r,j)=>{ const q=tx().get(id); q.onsuccess=()=>r(q.result); q.onerror=()=>j(q.error); });
 const delRpt   = id => new Promise((r,j)=>{ const q=tx('readwrite').delete(id); q.onsuccess=()=>r(); q.onerror=()=>j(q.error); });
