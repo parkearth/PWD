@@ -18,7 +18,7 @@
  */
 
 // ★ 請替換為你的 Google 試算表 ID
-const SPREADSHEET_ID = 'YOUR_SPREADSHEET_ID_HERE';
+const SPREADSHEET_ID = 'AKfycbxm-1NTZzQ_fVx5u8FPVU8mu4fBTP1WknyD5E-zP4ET34lWmpaFq7U8DqFBIq3R5l6C';
 
 // 分頁名稱設定
 const RAW_SHEET  = 'Raw Data';       // 原始資料分頁
@@ -78,7 +78,7 @@ function doPost(e) {
 
     // 讀取試算表（優先用 payload 中的 sheetId，fallback 用常數）
     const sid = data.sheetId || SPREADSHEET_ID;
-    if (!sid || sid === 'YOUR_SPREADSHEET_ID_HERE') {
+    if (!sid || sid === 'AKfycbxm-1NTZzQ_fVx5u8FPVU8mu4fBTP1WknyD5E-zP4ET34lWmpaFq7U8DqFBIq3R5l6C') {
       throw new Error('試算表 ID 未設定，請在 GAS 程式碼中填入 SPREADSHEET_ID');
     }
 
