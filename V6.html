@@ -1,0 +1,1902 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>115年度臺北市政府公共工程卓越獎 建築工程類複評會議簡報 V4.0</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+
+/* ═══ 莫蘭迪亮色系（淺底高對比）═══ */
+:root{
+  /* 主底色系：暖米白 */
+  --bg-base:   #f4f0eb;
+  --bg-mid:    #ede8e1;
+  --bg-card:   #ffffff;
+  --bg-dark:   #e5dfd6;
+  /* 深色文字 */
+  --ink:       #2c2820;
+  --ink-mid:   #4a4238;
+  --ink-dim:   #8a7e72;
+  /* 金色強調 */
+  --gold:      #b8860b;
+  --gold-lt:   #d4a017;
+  --gold-bg:   rgba(184,134,11,.10);
+  /* 各案色（莫蘭迪鮮色版）*/
+  --c1: #3a7abf;   /* 鋼藍 */
+  --c2: #4a9b6a;   /* 鼠尾草綠 */
+  --c3: #bf7040;   /* 赭褐 */
+  --c4: #8a5fbf;   /* 薰衣草紫 */
+  --c5: #3a9b8a;   /* 青瓷綠 */
+  --cm: #3a7a8a;   /* 石板藍 */
+  /* 輔助 */
+  --bdr: rgba(44,40,32,.12);
+  --shadow: 0 2px 12px rgba(44,40,32,.10);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;overflow:hidden;}
+body{font-family:'Noto Sans TC',sans-serif;background:var(--bg-base);color:var(--ink);font-size:17px;}
+
+/* ── SLIDE ENGINE ── */
+.slide{position:fixed;inset:0;bottom:60px;display:none;flex-direction:column;overflow:hidden;}
+.slide.active{display:flex;}
+
+/* ── NAV ── */
+.nav-bar{
+  position:fixed;bottom:0;left:0;right:0;height:60px;
+  background:rgba(244,240,235,.97);
+  border-top:2px solid var(--gold);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 32px;z-index:9000;backdrop-filter:blur(8px);
+  box-shadow:0 -2px 12px rgba(44,40,32,.08);
+}
+.nav-btn{
+  background:none;border:2px solid var(--gold);
+  color:var(--gold);padding:8px 28px;
+  font-family:'Noto Sans TC',sans-serif;font-size:15px;font-weight:700;
+  cursor:pointer;border-radius:4px;transition:all .2s;min-width:110px;
+}
+.nav-btn:hover{background:var(--gold);color:white;}
+.nav-btn:disabled{opacity:.28;cursor:default;}
+.nav-center{display:flex;flex-direction:column;align-items:center;gap:5px;}
+.nav-page{font-size:13px;color:var(--gold);letter-spacing:.18em;font-weight:700;}
+.nav-dots{display:flex;gap:5px;flex-wrap:wrap;justify-content:center;max-width:540px;}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--bg-dark);border:1.5px solid var(--bdr);cursor:pointer;transition:all .2s;flex-shrink:0;}
+.dot.active{background:var(--gold);border-color:var(--gold);transform:scale(1.5);}
+
+/* ── SPEAKER ── */
+.spk-btn{
+  position:fixed;top:14px;right:20px;z-index:9001;
+  background:var(--gold-bg);border:1.5px solid var(--gold);
+  color:var(--gold);padding:7px 14px;border-radius:4px;
+  font-family:'Noto Sans TC',sans-serif;font-size:13px;font-weight:700;cursor:pointer;
+}
+.spk-panel{
+  position:fixed;bottom:60px;left:0;right:0;
+  background:rgba(244,240,235,.98);border-top:2px solid var(--gold);
+  max-height:0;overflow:hidden;transition:max-height .4s;z-index:8999;
+  box-shadow:0 -4px 20px rgba(44,40,32,.12);
+}
+.spk-panel.open{max-height:200px;}
+.spk-inner{padding:14px 40px;display:flex;gap:22px;align-items:flex-start;}
+.spk-lbl{font-size:10px;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;white-space:nowrap;font-weight:700;padding-top:3px;}
+.spk-txt{font-size:20px;line-height:1.85;color:var(--ink-mid);}
+
+/* ── COVER ── */
+.slide-cover{justify-content:center;align-items:center;background:linear-gradient(145deg,#f4f0eb,#ede8e1);}
+.cover-inner{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;text-align:center;max-width:960px;padding:0 40px;}
+.cover-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:64px 64px;}
+.cover-glow{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(90,150,220,.18),transparent 55%),radial-gradient(ellipse at 75% 65%,rgba(184,134,11,.12),transparent 50%);}
+.cover-eyebrow{font-size:12px;letter-spacing:.42em;color:rgba(212,160,23,.8);text-transform:uppercase;margin-bottom:16px;}
+.cover-title{font-family:'Noto Serif TC',serif;font-size:64px;font-weight:900;line-height:1.32;letter-spacing:.04em;color:#4a8acc;margin-bottom:8px;}
+.cover-subtitle{font-family:'Noto Serif TC',serif;font-size:48px;font-weight:700;color:#d4a017;margin-bottom:22px;letter-spacing:.1em;}
+.cover-divider{width:72px;height:2px;background:linear-gradient(90deg,transparent,#d4a017,transparent);margin:0 auto 20px;}
+.cover-meta{font-size:32px;color:#4a8acc;letter-spacing:.08em;line-height:2.1;}
+.chips{display:flex;gap:9px;flex-wrap:wrap;justify-content:center;margin-top:26px;}
+.chip{padding:6px 16px;border-radius:20px;font-size:16px;letter-spacing:.08em;font-weight:700;}
+
+/* ── CONTENT PAGE ── */
+.pg{display:flex;flex-direction:column;height:100%;padding:22px 52px 8px;background:var(--bg-base);}
+.pg-hdr{display:flex;align-items:flex-start;gap:16px;padding-bottom:12px;border-bottom:2px solid var(--bdr);margin-bottom:16px;flex-shrink:0;}
+.pg-tag{font-size:11px;letter-spacing:.28em;text-transform:uppercase;padding:4px 11px;border:2px solid currentColor;border-radius:3px;white-space:nowrap;margin-top:3px;flex-shrink:0;font-weight:700;}
+.pg-title{font-family:'Noto Serif TC',serif;font-size:30px;font-weight:700;letter-spacing:.04em;line-height:1.28;color:var(--ink);}
+.pg-sub{font-size:18px;color:var(--ink-dim);margin-top:4px;}
+.pg-body{flex:1;overflow:hidden;}
+
+/* ── SECTION SPLASH (個案封面) ── */
+.splash{justify-content:center;align-items:center;position:relative;width: 100%;height: 100%;min-height: 100%;}
+.splash-overlay{position:absolute;inset:0;z-index:1;}
+.splash-inner{position:relative;z-index:2;text-align:center;padding:0 40px;max-width:900px;margin:auto;}
+.splash-ghost{font-family:'Noto Serif TC',serif;font-size:220px;font-weight:900;opacity:.05;line-height:1;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none;z-index:0;}
+.splash-eye{font-size:12px;letter-spacing:.4em;text-transform:uppercase;margin-bottom:14px;font-weight:700;opacity:.75;}
+.splash-ttl{font-family:'Noto Serif TC',serif;font-size:58px;font-weight:900;letter-spacing:.06em;line-height:1.32;margin-bottom:10px;}
+.splash-sub{font-size:26px;opacity:.8;letter-spacing:.08em;margin-bottom:24px;}
+.splash-tags{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.stag{display:inline-block;padding:10px 20px;border-radius:4px;font-size:18px;letter-spacing:.08em;font-weight:700;}
+
+/* ── GRIDS ── */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;}
+.g65{display:grid;grid-template-columns:3fr 2fr;gap:18px;}
+.g56{display:grid;grid-template-columns:2fr 3fr;gap:18px;}
+
+/* ── CARDS ── */
+.card{background:var(--bg-card);border:1.5px solid var(--bdr);border-radius:6px;padding:14px 16px;position:relative;overflow:hidden;box-shadow:var(--shadow);}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
+.cg::before{background:linear-gradient(90deg,var(--gold),var(--gold-lt));}
+.c1b::before{background:var(--c1);}
+.c2b::before{background:var(--c2);}
+.c3b::before{background:var(--c3);}
+.c4b::before{background:var(--c4);}
+.c5b::before{background:var(--c5);}
+.cmb::before{background:var(--cm);}
+.clbl{font-size:20px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:7px;font-weight:700;}
+.cval{font-family:'Noto Serif TC',serif;font-size:17px;font-weight:700;line-height:1.35;color:var(--ink);}
+.cval-lg{font-family:'Noto Serif TC',serif;font-size:36px;font-weight:900;line-height:1;}
+.cdesc{font-size:18px;color:var(--ink-dim);line-height:1.7;margin-top:5px;}
+
+/* ── SCORE TABLE ── */
+.stbl{width:100%;border-collapse:collapse;font-size:20px;}
+.stbl th{padding:10px 12px;text-align:center;font-size:18px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);background:var(--gold-bg);border-bottom:2px solid rgba(184,134,11,.25);font-weight:700;}
+.stbl td{padding:11px 12px;border-bottom:1px solid var(--bdr);vertical-align:middle;text-align:center;color:var(--ink);}
+.stbl td:first-child{text-align:left;}
+.stbl tr:last-child td{border-bottom:none;}
+.snum{font-family:'Noto Serif TC',serif;font-size:22px;font-weight:900;}
+
+/* ── COMPARE TABLE ── */
+.ctbl{width:100%;border-collapse:collapse;font-size:20px;}
+.ctbl th{padding:9px 12px;text-align:left;font-size:18px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-dim);border-bottom:2px solid var(--bdr);font-weight:700;background:var(--bg-mid);}
+.ctbl td{padding:10px 12px;border-bottom:1px solid var(--bdr);line-height:1.55;vertical-align:top;color:var(--ink-mid);}
+.ctbl tr:last-child td{border-bottom:none;}
+
+/* ── TAGS ── */
+.ctag{display:inline-block;padding:3px 10px;border-radius:3px;font-size:11px;font-weight:700;letter-spacing:.08em;color:white;}
+.kwrap{display:flex;flex-wrap:wrap;gap:10px;}
+.kwpill{font-size:16px;padding:3px 9px;border-radius:14px;background:var(--bg-dark);border:1px solid var(--bdr);color:var(--ink-mid);font-weight:500;}
+
+/* ── CASE HEADER ── */
+.chdr{background:var(--bg-mid);border-radius:6px;padding:14px 18px;border:1.5px solid var(--bdr);margin-bottom:12px;flex-shrink:0;}
+.chdr-tag{font-size:20px;letter-spacing:.28em;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:9px;font-weight:700;}
+.chdr-tl{font-family:'Noto Serif TC',serif;font-size:20px;font-weight:700;line-height:1.42;margin-bottom:10px;color:var(--ink-mid);}
+.qfrow{display:flex;gap:20px;flex-wrap:wrap;}
+.qf{display:flex;flex-direction:column;gap:2px;}
+.qflbl{font-size:18px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-dim);font-weight:700;}
+.qfval{font-size:18px;font-weight:700;color:var(--ink);}
+
+/* ── OBS ── */
+.obs{background:var(--bg-card);border-left:4px solid;padding:10px 14px;border-radius:0 5px 5px 0;margin-bottom:9px;box-shadow:var(--shadow);}
+.obs-num{font-size:20px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:5px;font-weight:700;}
+.obs-txt{font-size:18px;line-height:1.75;color:var(--ink-mid);}
+.obs-hl{background:var(--gold-bg);border:1.5px solid rgba(184,134,11,.25);border-radius:5px;padding:10px 14px;font-size:18px;line-height:1.75;color:var(--gold);margin-top:9px;}
+.obs-hl-lbl{font-size:18px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:5px;font-weight:700;}
+
+/* ── HEX GRID ── */
+.hxg{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;}
+.hxg2{display:grid;grid-template-columns:1fr 1fr;gap:9px;}
+.hxc{background:var(--bg-card);border:1.5px solid var(--gold);border-radius:5px;padding:11px;text-align:center;box-shadow:var(--shadow);}
+.hxl{font-size:18px;letter-spacing:.08em;color:var(--gold);margin-bottom:5px;font-weight:700;}
+.hxv{font-size:18px;font-weight:500;line-height:1.42;color:var(--ink-mid);}
+.stars{font-size:18px;margin-bottom:4px;}
+
+/* ── FEAT LIST ── */
+.feat-item{display:flex;align-items:flex-start;gap:10px;padding:8px 12px;background:var(--bg-card);border-radius:4px;margin-bottom:7px;box-shadow:var(--shadow);}
+.feat-num{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;flex-shrink:0;margin-top:1px;color:white;}
+.feat-txt{font-size:18px;line-height:1.7;color:var(--ink-mid);}
+
+/* ── CONTRIBUTION ── */
+.ctrb{border:1.5px solid var(--bdr);border-radius:5px;margin-bottom:9px;overflow:hidden;background:var(--bg-card);box-shadow:var(--shadow);}
+.ctrb-hdr{display:flex;align-items:center;gap:11px;padding:10px 14px;background:var(--bg-mid);}
+.ctrb-ico{font-size:18px;}
+.ctrb-ttl{font-size:20px;font-weight:700;flex:1;color:var(--ink);}
+.ctrb-stat{font-size:18px;color:var(--gold);font-weight:300;}
+.ctrb-body{padding:9px 14px 11px;display:flex;flex-wrap:wrap;gap:6px;}
+.ctag2{background:var(--bg-dark);border:1px solid var(--bdr);border-radius:3px;padding:3px 9px;font-size:14px;color:var(--ink-mid);font-weight:500;}
+
+/* ── TIMELINE ── */
+.tl{position:relative;padding-left:26px;}
+.tl::before{content:'';position:absolute;left:7px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--gold),rgba(184,134,11,.15));}
+.tl-item{position:relative;margin-bottom:14px;}
+.tl-item::before{content:'';position:absolute;left:-22px;top:5px;width:8px;height:8px;border-radius:50%;background:var(--gold);border:2px solid var(--bg-base);}
+.tl-dt{font-size:20px;color:var(--gold);letter-spacing:.12em;margin-bottom:2px;font-weight:700;}
+.tl-ev{font-size:20px;color:var(--ink-mid);line-height:1.55;}
+
+/* ── ALERT/INFO ── */
+.alert{background:rgba(191,112,64,.08);border:1.5px solid rgba(191,112,64,.3);border-radius:5px;padding:10px 16px;font-size:13px;color:#9a4a1a;line-height:1.7;}
+.info{background:rgba(58,122,191,.08);border:1.5px solid rgba(58,122,191,.3);border-radius:5px;padding:10px 16px;font-size:20px;color:#1a4a8a;line-height:1.7;}
+.success{background:rgba(74,155,106,.08);border:1.5px solid rgba(74,155,106,.3);border-radius:5px;padding:10px 16px;font-size:13px;color:#1a6a3a;line-height:1.7;}
+
+/* ── MASTER QUOTE ── */
+.mquote{font-family:'Noto Serif TC',serif;font-size:24px;font-weight:600;line-height:1.82;color:var(--ink);padding:18px;background:var(--gold-bg);border-left:4px solid var(--gold);border-radius:0 5px 5px 0;margin:12px 0;}
+
+/* ── DECISION TABLE ── */
+.dtbl{width:100%;border-collapse:collapse;font-size:13px;}
+.dtbl th{background:var(--gold-bg);padding:10px 12px;text-align:center;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);border-bottom:2px solid rgba(184,134,11,.25);font-weight:700;}
+.dtbl th:first-child{text-align:left;}
+.dtbl td{padding:12px 12px;border-bottom:1px solid var(--bdr);vertical-align:middle;text-align:center;color:var(--ink-mid);}
+.dtbl td:first-child{text-align:left;}
+.chkbox{display:inline-block;width:17px;height:17px;border:1.5px solid rgba(184,134,11,.55);border-radius:3px;margin-right:4px;vertical-align:middle;}
+.acc-line{display:inline-block;width:28px;height:3px;background:currentColor;vertical-align:middle;margin-right:9px;}
+
+/* ── PHOTO SLIDESHOW ── */
+.photo-slider {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--bg-dark);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.slider-large{
+    height:70vh;
+    min-height:465px;
+}
+
+.slider-small{
+    height:400px;
+    min-height:400px;
+}
+
+.photo-slides {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+}
+
+.photo-slide {
+    min-width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--bg-mid);
+    position: relative;
+}
+
+.photo-slide-img {
+    width: 100%;
+    height: calc(100% - 0px);       /* 留空間給標題 */
+    object-fit: cover;
+    display: block;
+}
+
+.photo-caption {
+    font-size: 13px;
+    color: var(--muted);
+    text-align: center;
+    padding: 8px 12px 6px;
+    background: rgba(0,0,0,0.4);
+    width: 100%;
+    flex-shrink: 0;
+    font-weight: 500;
+}
+
+.photo-icon {
+    font-size: 42px;
+    opacity: 0.4;
+    margin-bottom: 8px;
+}
+
+.photo-nav {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+    z-index: 3;
+}
+
+.photo-nav-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.4);
+    cursor: pointer;
+    border: none;
+    transition: all .2s;
+}
+
+.photo-nav-dot.active {
+    background: var(--gold);
+    transform: scale(1.4);
+}
+
+/* 左右箭頭 */
+.photo-prev, .photo-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.9);
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18px;
+    color: #222;
+    z-index: 3;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.photo-prev { left: 12px; }
+.photo-next { right: 12px; }
+
+.photo-prev:hover, .photo-next:hover {
+    background: var(--gold);
+    color: white;
+}
+
+/* 第18頁右側人物照片 */
+#s18{
+    position: relative;
+}
+
+.case06-photo{
+    position: absolute;
+
+    /* 控制位置 */
+    right: 450px;
+    top: 130px;
+
+    /* 尺寸 */
+    width: 360px;
+    height: auto;
+
+    z-index: 15;
+
+    /* 超出裁切 */
+    overflow: visible;
+
+    /* 視覺效果 */
+    border-radius: 0;
+}
+
+.case06-photo img{
+    width:100%;
+    height:auto;
+
+    /* 保持比例填滿 */
+    object-fit: contain;
+
+    display:block;
+
+}
+
+/* 第19頁右側人物照片 */
+#s19{
+    position: relative;
+}
+
+.case06-photo2{
+    position: absolute;
+
+    /* 控制位置 */
+    right: 350px;
+    top: 100px;
+
+    /* 尺寸 */
+    width: 200px;
+    height: auto;
+
+    z-index: 15;
+
+    /* 超出裁切 */
+    overflow: visible;
+
+    /* 視覺效果 */
+    border-radius: 0;
+}
+
+.case06-photo2 img{
+    width:100%;
+    height:auto;
+
+    /* 保持比例填滿 */
+    object-fit: contain;
+
+    display:block;
+
+}
+
+/* ── RADAR WRAPPER ── */
+.radar-box{background:var(--bg-card);border-radius:8px;border:1.5px solid var(--bdr);padding:10px;box-shadow:var(--shadow);}
+
+/* ── THANK YOU SLIDE ── */
+.slide-thanks{justify-content:center;align-items:center;background:linear-gradient(145deg,#f4f0eb,#ede8e1);}
+.thanks-inner{position:relative;z-index:2;text-align:center;padding:0 40px;max-width:780px;}
+
+/* ── BG HELPERS ── */
+.bg-s1{background:linear-gradient(148deg,#1a2840,#2c3e5c);}
+.bg-s2{background:linear-gradient(148deg,#1a2e22,#2c3e30);}
+.bg-s3{background:linear-gradient(148deg,#2e1e0e,#3c2a18);}
+.bg-s4{background:linear-gradient(148deg,#1e1228,#2a1a38);}
+.bg-s5{background:linear-gradient(148deg,#0e2820,#1a3428);}
+.bg-sm{background:linear-gradient(148deg,#0e2028,#1a2c34);}
+</style>
+</head>
+<body>
+
+<!-- ╔══════════════════════════════════════════════════╗
+     ║  SLIDE 0 : COVER                               ║
+     ╚══════════════════════════════════════════════════╝ -->
+<div class="slide slide-cover" id="s0">
+<div class="cover-bg"></div><div class="cover-grid"></div>
+<div class="cover-inner">
+
+  <div class="cover-title">115年度臺北市政府<br>公共工程卓越獎暨卓越匠師獎</div>
+  <div class="cover-subtitle">建築工程類　複評會議簡報</div>
+  <div class="cover-divider"></div>
+  <div class="cover-meta">
+    報告人：建築工程類初評小組召集人　洪廸光
+  </div>
+  <div class="chips">
+    <span class="chip" style="background:rgba(90,159,212,.22);border:2px solid rgba(90,159,212,.55);color:#4F91D6">第1案｜南港機廠公宅</span>
+    <span class="chip" style="background:rgba(98,176,122,.22);border:2px solid rgba(98,176,122,.55);color:#3E9E64">第2案｜南港高中</span>
+    <span class="chip" style="background:rgba(217,143,98,.22);border:2px solid rgba(217,143,98,.55);color:#B56A34">第3案｜和平高中</span>
+    <span class="chip" style="background:rgba(165,127,212,.22);border:2px solid rgba(165,127,212,.55);color:#7D57C9">第4案｜國際會議廳</span>
+    <span class="chip" style="background:rgba(98,176,162,.22);border:2px solid rgba(98,176,162,.55);color:#48A89B">第5案｜大安公廁</span>
+    <span class="chip" style="background:rgba(90,154,176,.22);border:2px solid rgba(90,154,176,.55);color:#48A89B">卓越匠師｜黃東開</span>
+  </div>
+</div>
+<div data-notes="召集人、各位複評委員先進，大家好。我是建築工程類初評小組召集人洪廸光。今天非常榮幸代表初評小組，向各位委員進行建築工程類的複評簡報。"></div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════╗
+     ║  SLIDE 1 : 初評歷程 + 評分總表                ║
+     ╚══════════════════════════════════════════════════╝ -->
+<div class="slide bg-navy" id="s1">
+<div class="pg">
+  <div class="pg-hdr">
+    <span class="pg-tag" style="color:var(--gold)">Ch.1</span>
+    <div>
+      <div class="pg-title">初評作業歷程與評分總表</div>
+      <div class="pg-sub">115年5月6日～5月15日</div>
+    </div>
+  </div>
+  <div class="pg-body" style="display:grid;grid-template-columns:1fr 1.6fr;gap:20px">
+    <!-- 時間軸 -->
+    <div>
+      <div style="font-size:20px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);margin-bottom:12px;font-weight:700">初評作業歷程</div>
+      <div class="tl">
+        <div class="tl-item"><div class="tl-dt">5月6日（三）下午</div><div class="tl-ev"><strong>初評審查會議</strong>｜決定評分指標權重及勘查行程</div></div>
+        <div class="tl-item"><div class="tl-dt">5月6日（三）下午</div><div class="tl-ev"><strong>勘查①</strong>｜第4案　國際會議廳精裝修工程</div></div>
+        <div class="tl-item"><div class="tl-dt">5月11日（一）上午</div><div class="tl-ev"><strong>勘查②</strong>｜第2案　南港高中綜合教學大樓</div></div>
+        <div class="tl-item"><div class="tl-dt">5月12日（二）上午</div><div class="tl-ev"><strong>勘查③</strong>｜第3案　和平高中教學大樓</div></div>
+        <div class="tl-item"><div class="tl-dt">5月13日（三）下午</div><div class="tl-ev"><strong>勘查④</strong>｜第1案　南港機廠公宅統包工程<br>卓越匠師候選人黃東開先生簡報</div></div>
+        <div class="tl-item"><div class="tl-dt">5月14日（四）下午</div><div class="tl-ev"><strong>勘查⑤</strong>｜第5案　大安森林公園6號公廁</div></div>
+        <div class="tl-item"><div class="tl-dt">5月15日（五）下午</div><div class="tl-ev"><strong>初評會議</strong>｜綜合評比・確認入選建議名單<br></div></div>
+      </div>
+    </div>
+    <!-- 評分總表 -->
+    <div>
+      <div style="font-size:20px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);margin-bottom:12px;font-weight:700">初評評分總表（115年5月15日）</div>
+      <table class="stbl">
+        <thead>
+          <tr>
+            <th style="text-align:left">案件</th>
+            <th>參選工程分數</th>
+            <th>設計單位分數</th>
+            <th>主辦機關</th>
+            <th>施工單位</th>
+            <th>監造單位</th>
+            <th>專案管理單位</th>
+            <th>設計單位</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="ctag" style="background:var(--c1)">第1案</span><div style="font-size:18px;color:var(--muted)">南港機廠公宅・第一級</div></td>
+            <td><span class="snum" style="color:#4F91D6">88.0</span></td>
+            <td><span class="snum" style="color:#4F91D6">88.3</span></td>
+            <td style="color:#6cb870;font-size:18px;font-weight:700">■入選</td>
+            <td style="color:#6cb870;font-size:18px;font-weight:700">■入選</td>
+            <td style="color:#6cb870;font-size:18px;font-weight:700">■入選</td>
+            <td style="color:#6cb870;font-size:18px;font-weight:700">■入選</td>
+            <td style="color:#6cb870;font-size:18px;font-weight:700">■入選</td>
+          </tr>
+          <tr>
+            <td><span class="ctag" style="background:var(--c2)">第2案</span><div style="font-size:18px;color:var(--muted)">南港高中・第一級</div></td>
+            <td><span class="snum" style="color:#3E9E64">86.8</span></td>
+            <td><span class="snum" style="color:#3E9E64">87.1</span></td>
+            <td style="color:#6cb870;font-size:18px;font-weight:700">■入選</td>
+            <td style="color:#6cb870;font-size:18px;font-weight:700">■入選</td>
+            <td style="color:#6cb870;font-size:18px;font-weight:700">■入選</td>
+            <td style="color:#6cb870;font-size:18px;font-weight:700">無</td>
+            <td style="color:#6cb870;font-size:18px;font-weight:700">■入選</td>
+          </tr>
+          <tr>
+            <td><span class="ctag" style="background:var(--c3)">第3案</span><div style="font-size:18px;color:var(--muted)">和平高中・第一級</div></td>
+            <td><span class="snum" style="color:#B56A34">87.0</span></td>
+            <td><span class="snum" style="color:#B56A34">87.6</span></td>
+            <td style="color:#6cb870;font-size:18px;font-weight:700">■入選</td>
+            <td style="color:#6cb870;font-size:18px;font-weight:700">■入選</td>
+            <td style="color:#6cb870;font-size:18px;font-weight:700">■入選</td>
+            <td style="color:#6cb870;font-size:18px;font-weight:700">無</td>
+            <td style="color:#6cb870;font-size:18px;font-weight:700">■入選</td>
+          </tr>
+          <tr>
+            <td><span class="ctag" style="background:var(--c4)">第4案</span><div style="font-size:18px;color:var(--muted)">國際會議廳・第二級</div></td>
+            <td><span class="snum" style="color:#7D57C9">86.5</span></td>
+            <td><span class="snum" style="color:#7D57C9">86.8</span></td>
+            <td style="color:#6cb870;font-size:18px;font-weight:700">■入選</td>
+            <td style="color:#6cb870;font-size:18px;font-weight:700">■入選</td>
+            <td style="color:#6cb870;font-size:18px;font-weight:700">■入選</td>
+            <td style="color:#6cb870;font-size:18px;font-weight:700">無</td>
+            <td style="color:#6cb870;font-size:18px;font-weight:700">■入選</td>
+          </tr>
+          <tr>
+            <td><span class="ctag" style="background:var(--c5)">第5案</span><div style="font-size:18px;color:var(--muted)">大安森林公廁・第三級</div></td>
+            <td><span class="snum" style="color:#48A89B">85.8</span></td>
+            <td><span class="snum" style="color:#48A89B">85.7</span></td>
+            <td style="color:#6cb870;font-size:18px;font-weight:700">■入選</td>
+            <td style="color:#6cb870;font-size:18px;font-weight:700">■入選</td>
+            <td style="color:#6cb870;font-size:18px;font-weight:700">■入選</td>
+            <td style="color:#6cb870;font-size:18px;font-weight:700">無</td>
+            <td style="color:#6cb870;font-size:18px;font-weight:700">■入選</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="margin-top:10px" class="info">五案分數均達85分門檻，全數列入初評入選建議名單。</div>
+    </div>
+  </div>
+</div>
+<div data-notes="首先向委員報告初評作業歷程。本次建築工程類共有五件工程及一位卓越匠師參選，我們自5月6日下午召開初評審查會議，決定評分指標權重後，於兩週內完成五個工地現場勘查。5月15日初評會議完成評分。從畫面中的初評總表可以看到，今年入選案件的分數表現相當整齊，基本都在85.7分到88.3分的高分段，全數通過85分門檻，並都獲得初評入選推薦。這代表所有參選工程都是各單位一時之選，具備極佳的基礎體質，另外卓越匠師的部分稍後會在後面說明。"></div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════╗
+     ║  SLIDE 2 : 全覽比較 + 雷達圖                  ║
+     ╚══════════════════════════════════════════════════╝ -->
+<div class="slide bg-dark" id="s2">
+<div class="pg">
+  <div class="pg-hdr">
+    <span class="pg-tag" style="color:var(--gold)">Ch.2</span>
+    <div>
+      <div class="pg-title">五案全覽比較</div>
+      <div class="pg-sub">各案規模、類型、分數並列，建立複評評選基準輪廓</div>
+    </div>
+  </div>
+  <div class="pg-body" style="display:grid;grid-template-columns:1.5fr 1fr;gap:20px">
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <table class="ctbl" style="font-size:13px">
+        <thead>
+          <tr>
+            <th style="width:150px">案件</th>
+            <th style="width:450px">工程性質</th>
+            <th style="width:140px">契約金額</th>
+            <th style="width:140px">初評分數<br>工程／設計</th>
+            <th>核心亮點</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="ctag" style="background:var(--c1)">第1案</span><div style="font-size:20px;color:var(--muted)">南港機廠公宅</div></td>
+            <td style="font-size:20px">第一級｜大規模公宅統包，整合建築機電景觀</td>
+            <td><span style="font-size:20px;font-weight:900;font-family:'Noto Serif TC',serif;color:#4F91D6">77億</span></td>
+            <td style="text-align:center"><span class="snum" style="font-size:20px;color:#4F91D6">88.0</span><span style="color:var(--dim)">/</span><span class="snum" style="font-size:20px;color:#4F91D6">88.3</span></td>
+            <td><div class="kwrap"><span class="kwpill">全國最大單建照公宅</span><span class="kwpill">BS8001認證</span><span class="kwpill">AIoT</span></div></td>
+          </tr>
+          <tr>
+            <td><span class="ctag" style="background:var(--c2)">第2案</span><div style="font-size:20px;color:var(--muted)">南港高中</div></td>
+            <td style="font-size:20px">第一級｜維持校園營運，複合機能教學大樓</td>
+            <td><span style="font-size:20px;font-weight:900;font-family:'Noto Serif TC',serif;color:#3E9E64">7.96億</span></td>
+            <td style="text-align:center"><span class="snum" style="font-size:20px;color:#3E9E64">86.8</span><span style="color:var(--dim)">/</span><span class="snum" style="font-size:20px;color:#3E9E64">87.1</span></td>
+            <td><div class="kwrap"><span class="kwpill">2021國家建築金質獎</span><span class="kwpill">橘色烤漆格柵美學</span><span class="kwpill">高鐵隧道電子監測</span></div></td>
+          </tr>
+          <tr>
+            <td><span class="ctag" style="background:var(--c3)">第3案</span><div style="font-size:20px;color:var(--muted)">和平高中</div></td>
+            <td style="font-size:20px">第一級｜都市精華區校舍新建，270格共享停車</td>
+            <td><span style="font-size:20px;font-weight:900;font-family:'Noto Serif TC',serif;color:#B56A34">19億</span></td>
+            <td style="text-align:center"><span class="snum" style="font-size:20px;color:#B56A34">87.0</span><span style="color:var(--dim)">/</span><span class="snum" style="font-size:20px;color:#B56A34">87.6</span></td>
+            <td><div class="kwrap"><span class="kwpill">眷村磚瓦傳承</span><span class="kwpill">和平鴿意象</span><span class="kwpill">軸線翻轉</span></div></td>
+          </tr>
+          <tr>
+            <td><span class="ctag" style="background:var(--c4)">第4案</span><div style="font-size:20px;color:var(--muted)">國際會議廳</div></td>
+            <td style="font-size:20px">第二級｜室內空間精裝修，專業場館功能整合</td>
+            <td><span style="font-size:20px;font-weight:900;font-family:'Noto Serif TC',serif;color:#7D57C9">9,437萬</span></td>
+            <td style="text-align:center"><span class="snum" style="font-size:20px;color:#7D57C9">86.5</span><span style="color:var(--dim)">/</span><span class="snum" style="font-size:20px;color:#7D57C9">86.8</span></td>
+            <td><div class="kwrap"><span class="kwpill">精工美學</span><span class="kwpill">聲學設計</span><span class="kwpill">BEMS</span></div></td>
+          </tr>
+          <tr>
+            <td><span class="ctag" style="background:var(--c5)">第5案</span><div style="font-size:20px;color:var(--muted)">大安公廁</div></td>
+            <td style="font-size:20px">第三級｜公廁景觀化，樹冠鋼構造型，BIM小案</td>
+            <td><span style="font-size:20px;font-weight:900;font-family:'Noto Serif TC',serif;color:#48A89B">2,370萬</span></td>
+            <td style="text-align:center"><span class="snum" style="font-size:20px;color:#48A89B">85.8</span><span style="color:var(--dim)">/</span><span class="snum" style="font-size:20px;color:#48A89B">85.7</span></td>
+            <td><div class="kwrap"><span class="kwpill">立體樹枝鋼構</span><span class="kwpill">清水模精工</span><span class="kwpill">APP管理</span></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- 雷達圖 -->
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <canvas id="radarCanvas" width="600" height="450" style="align-self:center"></canvas>
+      <div style="font-size:16px;color:var(--dim);padding:6px 0">※雷達圖為比較分析視圖，採7~10分區間放大呈現，非原始分數尺度。</div>
+    </div>
+  </div>
+</div>
+<div data-notes="在進入個案之前，先向各位委員概要介紹今年入選的五件作品。這五個案件的規模跨度極大、類型也極為多元，各自代表了臺北市公共工程在不同尺度下的標竿：
+第一案『南港機廠公宅』，第一級工程，是高達77億元、整合AIoT智慧科技與BS8001循環經濟認證的全台最大規模單一建照公宅統包工程；第二案『南港高中綜合教學大樓』，則是契約金額7.99億，在維持校園正常營運的敏感都市界面下推進，展現高標準的環境融合與校園更新典範；第三案『和平高中教學大樓』，第一級工程，契約金額19億元，透過大膽的校園軸線翻轉，一舉解決了地區數十年來的都市交通痛點；第四案『國際會議廳精裝修』，第二級工程，契約金額9,437萬元，也是本次唯一的室內精裝修與系統整合工程，首創導入TAF第三方聲學實測驗證，展現高標準的科學裝修；第五案『大安6號公廁』，第三級工程，契約金額僅2,370萬，規模雖小，卻首創平時、防災雙模式轉換機制，展現出不輸大型工程的極致匠心與數位管理。旁邊的綜合雷達圖，將各案在品質功能等六大面向的得分進行區間放大，供各位委員快速參考。接下來依序進行逐案報告。"></div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════╗
+     ║  SLIDE 3 : 第1案 封面                          ║
+     ╚══════════════════════════════════════════════════╝ -->
+<div class="slide splash bg-s1" id="s3">
+  <div class="splash-overlay" style="background:radial-gradient(ellipse at 30% 50%,rgba(58,122,191,.25),transparent 60%)"></div>
+  <div class="splash-ghost" style="color:#aad4ff">第一案</div>
+  <div class="splash-inner">
+    <div class="splash-eye" style="color:rgba(170,212,255,.75)">CASE 01 · First-Class · 初評 88.0 / 88.3 分</div>
+    <div class="splash-ttl" style="color:#f0ece4">臺北市南港區<br>南港機廠基地<br>公共住宅統包工程</div>
+    <div class="splash-sub" style="color:rgba(170,212,255,.85)">全台最大單一建照公宅・亞洲首座BS8001循環認證・立體城市連結示範</div>
+    <div class="splash-tags">
+      <span class="stag" style="background:rgba(58,122,191,.25);border:1.5px solid rgba(90,160,220,.5);color:#c0d8f8">主辦：都市發展局</span>
+      <span class="stag" style="background:rgba(58,122,191,.25);border:1.5px solid rgba(90,160,220,.5);color:#c0d8f8">契約：76億元</span>
+      <span class="stag" style="background:rgba(58,122,191,.25);border:1.5px solid rgba(90,160,220,.5);color:#c0d8f8">施工：大陸工程・達欣工程</span>
+      <span class="stag" style="background:rgba(58,122,191,.25);border:1.5px solid rgba(90,160,220,.5);color:#c0d8f8">專管：中興工程顧問・台北國際聯合建築師</span>
+      <span class="stag" style="background:rgba(58,122,191,.25);border:1.5px solid rgba(90,160,220,.5);color:#c0d8f8">監造：中興・台北國際・華興聯合建築師</span>
+      <span class="stag" style="background:rgba(58,122,191,.25);border:1.5px solid rgba(90,160,220,.5);color:#c0d8f8">設計：薛昭信・闕河彬建築師事務所</span>
+    </div>
+  </div>
+  <div data-notes="首先來看第1案，這是由都發局主辦、契約金額達76億元的南港機廠基地公共住宅統包工程 ，初評分數獲得88.0/88.3的高分肯定 。本案是目前全台規模最大的單一建照公宅指標工程 。團隊整合了大陸工程、達欣工程及中興工程顧問等頂尖陣容 ，其核心價值不僅在於提供居住空間，更是亞洲首座榮獲BS8001循環經濟認證、兼具立體城市連結示範效益的跨時代公共建築 。"></div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════╗
+     ║  SLIDE 4 : 第1案 工程概要與核心亮點            ║
+     ╚══════════════════════════════════════════════════╝ -->
+<div class="slide" id="s4" style="background:var(--bg-base)">
+<div class="pg">
+  <div class="pg-hdr">
+    <span class="pg-tag" style="color:var(--c1)">第1案</span>
+    <div>
+      <div class="pg-title" style="color:var(--c1)">工程概要與核心亮點</div>
+      <div class="pg-sub">南港機廠基地公共住宅統包工程｜全台首座循環經濟公宅</div>
+    </div>
+  </div>
+  <div class="pg-body" style="display:grid;grid-template-columns:1.1fr 1fr;gap:14px">
+    <!-- 左欄：照片輪播 + 工程數據 -->
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <!-- 照片輪播 -->
+      <div class="photo-slider slider-large" id="sl1" style="height:200px">
+        <div class="photo-slides" id="sl1-track">
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case1-01.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case1-02.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case1-03.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case1-04.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case1-05.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case1-06.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case1-07.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case1-08.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case1-09.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case1-10.jpg"></div>
+        </div>
+        <button class="photo-prev" onclick="slidePhoto('sl1',-1)">‹</button>
+        <button class="photo-next" onclick="slidePhoto('sl1',1)">›</button>
+        <div class="photo-nav" id="sl1-nav"></div>
+      </div>
+      <div class="chdr" style="border-color:var(--c1);padding:10px 14px">
+        <div class="qfrow">
+          <div class="qf"><div class="qflbl">基地面積</div><div class="qfval">77,741㎡</div></div>
+          <div class="qf"><div class="qflbl">樓地板面積</div><div class="qfval">149880㎡</div></div>
+          <div class="qf"><div class="qflbl">規模</div><div class="qfval">地上27層地下0層 1幢2棟 SRC造</div></div>
+        </div>
+      </div>
+    </div>
+    <!-- 右欄：核心亮點 -->
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div style="font-size:20px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-dim);font-weight:700;margin-bottom:2px">核心亮點</div>
+      <div class="obs" style="border-color:var(--c1)">
+        <div class="obs-num" style="color:var(--c1)">亮點 01｜亞洲首座BS8001循環公宅</div>
+        <div class="obs-txt">循環經濟產值達<strong style="color:var(--c1)">47%</strong>（市府目標20%），50項以上循環作法；太陽能年發電221,231度，年減碳111公噸CO₂e；電力回生電梯年節電10萬度。</div>
+      </div>
+      <div class="obs" style="border-color:var(--c1)">
+        <div class="obs-num" style="color:var(--c1)">亮點 02｜捷運機廠上方高難度施工</div>
+        <div class="obs-txt">出土段加蓋原每日僅凌晨2至5時施工，經各方協調後爭取假日工時，<strong style="color:var(--c1)">2個月內完成加蓋且未影響捷運營運</strong>；天橋基樁深40公尺鄰近潛盾隧道，額外增設67支微型保護樁。</div>
+      </div>
+      <div class="obs" style="border-color:var(--c1)">
+        <div class="obs-num" style="color:var(--c1)">亮點 03｜多元公共空間提早點交</div>
+        <div class="obs-txt">5樓風雨廣場（挑高12m・650坪）、活力跑道（650m）、都市農園、<strong style="color:var(--c1)">共享辦公室（1,800坪）提早於114/3/31點交</strong>，配合產發局新創旗艦基地開幕。立體通廊串連北流廣場，24小時開放行人。</div>
+      </div>
+      <!-- 工程關鍵數字 -->
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">
+        <div class="card c1b" style="text-align:center;padding:10px">
+          <div class="clbl">社宅戶數</div>
+          <div class="cval-lg" style="color:var(--c1);font-size:32px">1,442</div>
+          <div class="cdesc" style="font-size:20px">全市最大戶數公宅</div>
+        </div>
+        <div class="card c1b" style="text-align:center;padding:10px">
+          <div class="clbl">查核最高分</div>
+          <div class="cval-lg" style="color:var(--c1);font-size:32px">87</div>
+          <div class="cdesc" style="font-size:20px">114年府施工查核高分</div>
+        </div>
+        <div class="card c1b" style="text-align:center;padding:10px">
+          <div class="clbl">循環產值</div>
+          <div class="cval-lg" style="color:var(--c1);font-size:32px">47%</div>
+          <div class="cdesc" style="font-size:20px">遠超目標20%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div data-notes="本案最大的技術挑戰，在於必須在『營運中的捷運機廠上方』進行高難度施工 。出土段加蓋原每日僅能於凌晨2至5點作業，經統包團隊強力協調，爭取到假日工時，在2個月內安全完成加蓋且未影響捷運營運 。此外，天橋基樁深達40公尺，極度鄰近潛盾隧道，團隊額外增設了67支微型保護樁進行地盤改良 。工法上，本案與台科大合作應用新型BSRG束制專利工法，設置於鋼樑下翼板以確保耐震結構，並導入全方位AIoT平台與BIM系統，精準控管高難度的三維量體 。"></div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════╗
+     ║  SLIDE 5 : 第1案 卓越性分析與入選理由          ║
+     ╚══════════════════════════════════════════════════╝ -->
+<div class="slide" id="s5" style="background:var(--bg-base)">
+<div class="pg">
+  <div class="pg-hdr">
+    <span class="pg-tag" style="color:var(--c1)">第1案</span>
+    <div>
+      <div class="pg-title" style="color:var(--c1)">卓越性分析與入選理由</div>
+      <div class="pg-sub">節能減碳9.33、創新科技9.00，均為五案最高分</div>
+    </div>
+  </div>
+  <div class="pg-body" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div class="hxg">
+        <div class="hxc"><div class="stars" style="color:var(--c1)">★★★★☆</div><div class="hxl">品質功能 8.86</div><div class="hxv">查核81→87分逐年進步，三級品管落實，PDCA確實</div></div>
+        <div class="hxc"><div class="stars" style="color:var(--c1)">★★★★★</div><div class="hxl">節能減碳 9.33★</div><div class="hxv">BS8001循環認證、太陽能、電力回生電梯、IP水泥</div></div>
+        <div class="hxc"><div class="stars" style="color:var(--c1)">★★★★☆</div><div class="hxl">景觀美學 8.40</div><div class="hxv">立體城市設計，錯位量體，天橋城市地景意象</div></div>
+        <div class="hxc"><div class="stars" style="color:var(--c1)">★★★★☆</div><div class="hxl">防災安全 8.60</div><div class="hxv">電子圍籬、CCTV監控、安全帽定位、VR工安訓練</div></div>
+        <div class="hxc"><div class="stars" style="color:var(--c1)">★★★★☆</div><div class="hxl">環境保育 8.93</div><div class="hxv">生態棚架、垂直綠化、雨水蓄存1座大安森林公園容量</div></div>
+        <div class="hxc"><div class="stars" style="color:var(--c1)">★★★★★</div><div class="hxl">創新科技 9.00★</div><div class="hxv">AIoT平台、BIM、PMIS無紙化、人臉辨識、BSRG專利</div></div>
+      </div>
+      <!-- 照片輪播 -->
+      <div class="photo-slider  slider-small" id="sl2" style="height:200px">
+        <div class="photo-slides" id="sl2-track">
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case1-11.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case1-12.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case1-13.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case1-14.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case1-15.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case1-16.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case1-17.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case1-18.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case1-19.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case1-20.jpg"></div>
+        </div>
+        <button class="photo-prev" onclick="slidePhoto('sl2',-1)">‹</button>
+        <button class="photo-next" onclick="slidePhoto('sl2',1)">›</button>
+        <div class="photo-nav" id="sl2-nav"></div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div style="font-size:20px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-dim);font-weight:700;margin-bottom:2px">初評入選特色（節錄）</div>
+      <div class="feat-item">
+        <div class="feat-num" style="background:var(--c1)">1</div>
+        <div class="feat-txt">全台首座導入循環經濟3R理念社宅：結構減重28.1%（節省鋼筋707～1,060噸）、再生PU跑道、模組化工務空間、電力回生電梯年節電10萬度</div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-num" style="background:var(--c1)">2</div>
+        <div class="feat-txt">捷運機廠上方高難度統包：新舊結構銜接、天橋鄰近潛盾隧道加設67支微型保護樁、COVID-19疫情三級警戒期間啟動人臉辨識體溫量測持續施工</div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-num" style="background:var(--c1)">3</div>
+        <div class="feat-txt">立體通廊採魚骨狀結構橫跨忠孝東路，白天夜間成為城市地景；5樓多元公共空間（跑道、農園、共享辦公）提早點交，公共效益提前實現</div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-num" style="background:var(--c1)">4</div>
+        <div class="feat-txt">與台科大合作應用新型BSRG束制工法（已取得專利），設置於鋼樑下翼板無須侵入平頂空間，耐震結構監督734次，具高度推廣潛力</div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-num" style="background:var(--c1)">5</div>
+        <div class="feat-txt">整合都市發展局、捷運局、捷運公司、產發局等多個政府單位，為本次跨單位整合複雜度最高的案件</div>
+      </div>
+      <div class="card cg" style="padding:10px 14px">
+        <div class="clbl">近五年代表獎項</div>
+        <div class="cdesc">第25屆金質獎建築類優等（南港機廠公宅1區）　／　2021智慧城市創新應用獎</div>
+      </div>
+      <div class="obs-hl">
+        <div class="obs-hl-lbl">▸ 專管單位重要貢獻</div>
+        專業技術協調會321次、耐震結構監督734次、現場督導250次、聯合巡檢221次，為本次五案中唯一設置專管單位的工程，跨單位整合成效顯著。
+      </div>
+    </div>
+  </div>
+</div>
+<div data-notes="在品質成果上，本案的『節能減碳』與『創新科技』均獲得初評委員們的高分肯定 。其循環經濟產值高達47%，並設有可年節電10萬度的電力回生電梯 。社會效益方面，5樓高達650坪的風雨廣場、活力跑道與1,800坪的共享辦公室已提早點交，讓公共效益提前實現 ；本案也是唯一設置專業專管單位的工程，跨單位協調整合成效卓越 ，並已獲第25屆金質獎建築類優等 。初評小組認為，本案作為全台最大規模公宅，跨單位整合極其複雜，卻能完美融合循環經濟與智慧科技，且已獲金質獎肯定，故初評推薦入選。"></div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════╗
+     ║  SLIDE 6 : 第2案 封面                          ║
+     ╚══════════════════════════════════════════════════╝ -->
+<div class="slide splash bg-s2" id="s6">
+  <div class="splash-overlay" style="background:radial-gradient(ellipse at 70% 40%,rgba(74,155,106,.25),transparent 60%)"></div>
+  <div class="splash-ghost" style="color:#aaeecc">第二案</div>
+  <div class="splash-inner">
+    <div class="splash-eye" style="color:rgba(170,238,204,.75)">CASE 02 · First-Class · 初評 86.8 / 87.1 分</div>
+    <div class="splash-ttl" style="color:#f0ece4">臺北市立南港高級中學<br>綜合教學大樓新建工程</div>
+    <div class="splash-sub" style="color:rgba(170,238,204,.85)">校園正常營運・鄰近高鐵電子監測・2021國家建築金質獎</div>
+    <div class="splash-tags">
+      <span class="stag" style="background:rgba(74,155,106,.25);border:1.5px solid rgba(90,180,130,.5);color:#c0eedd">主辦：新工處</span>
+      <span class="stag" style="background:rgba(74,155,106,.25);border:1.5px solid rgba(90,180,130,.5);color:#c0eedd">契約：7.9億元</span>
+      <span class="stag" style="background:rgba(74,155,106,.25);border:1.5px solid rgba(90,180,130,.5);color:#c0eedd">施工：遠碩營造・遠碩機電</span>
+      <span class="stag" style="background:rgba(74,155,106,.25);border:1.5px solid rgba(90,180,130,.5);color:#c0eedd">監造：啟達聯合建築師事務所</span>
+      <span class="stag" style="background:rgba(74,155,106,.25);border:1.5px solid rgba(90,180,130,.5);color:#c0eedd">設計：啟達聯合建築師事務所</span>
+    </div>
+  </div>
+  <div data-notes="接著來看第2案，由新工處主辦、啟達聯合建築師事務所設計監造、遠碩營造施工的南港高中綜合教學大樓新建工程 。契約金額為7.9億元，初評獲得86.8/ 87.1分 。本案最大挑戰，是必須在既有校園正常營運、師生活動不中斷的前提下施工，且工區緊鄰高鐵動線，屬於高敏感度的都市界面案件。設計規劃階段就已經榮獲2021年第23屆國家建築金質獎規劃設計類公共建築組肯定。"></div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════╗
+     ║  SLIDE 7 : 第2案 工程概要與核心亮點            ║
+     ╚══════════════════════════════════════════════════╝ -->
+<div class="slide" id="s7" style="background:var(--bg-base)">
+<div class="pg">
+  <div class="pg-hdr">
+    <span class="pg-tag" style="color:var(--c2)">第2案</span>
+    <div>
+      <div class="pg-title" style="color:var(--c2)">工程概要與核心亮點</div>
+      <div class="pg-sub">南港高中綜合教學大樓｜112/08/21開工，預定115/07/10竣工，全程零職業災害</div>
+    </div>
+  </div>
+  <div class="pg-body" style="display:grid;grid-template-columns:1.1fr 1fr;gap:14px">
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <!-- 照片輪播 -->
+      <div class="photo-slider slider-large" id="sl3" style="height:200px">
+        <div class="photo-slides" id="sl3-track">
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case2-01.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case2-02.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case2-03.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case2-04.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case2-05.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case2-06.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case2-07.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case2-08.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case2-09.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case2-10.jpg"></div>
+        </div>
+        <button class="photo-prev" onclick="slidePhoto('sl3',-1)">‹</button>
+        <button class="photo-next" onclick="slidePhoto('sl3',1)">›</button>
+        <div class="photo-nav" id="sl3-nav"></div>
+      </div>
+      <div class="chdr" style="border-color:rgba(74,155,106,.35);padding:10px 14px">
+        <div class="qfrow">
+          <div class="qf"><div class="qflbl">基地面積</div><div class="qfval">31,561㎡</div></div>
+          <div class="qf"><div class="qflbl">樓地板</div><div class="qfval">1,860㎡</div></div>
+          <div class="qf"><div class="qflbl">規模</div><div class="qfval">地上5層地下2層 1幢1棟 RC、鋼構造</div></div>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px">
+      <div style="font-size:20px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-dim);font-weight:700;margin-bottom:2px">核心亮點</div>
+      <div class="obs" style="border-color:var(--c2)">
+        <div class="obs-num" style="color:var(--c2)">亮點 01｜高耐震避難設計與高鐵動線監測</div>
+        <div class="obs-txt">因應防災避難需求，耐震用途係數提升至I=1.5，局部樑柱採SRC結構。由於工區極鄰近高鐵動線，於高鐵隧道內全面架設電子監控設備進行精密安全變位監測。</div>
+      </div>
+      <div class="obs" style="border-color:var(--c2)">
+        <div class="obs-num" style="color:var(--c2)">亮點 02｜嚴密綠色施工與周邊環境保護</div>
+        <div class="obs-txt">於鄰近校舍設置1米、鄰房設置2米隔音帆布防塵網，並以研磨機具破碎混凝土降低噪音震動。工區設置粉塵PM2.5、PM10與噪音環保監控系統即時監測。</div>
+      </div>
+      <div class="obs" style="border-color:var(--c2)">
+        <div class="obs-num" style="color:var(--c2)">亮點 03｜現代校園美學與都市開放空間縫合</div>
+        <div class="obs-txt">外觀採用現代簡約橘色烤漆格柵遮陽設計（獲2021國家建築金質獎），市民大道側主動退縮5米形成帶狀開放空間友善社區。</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <div class="card c2b" style="padding:10px">
+          <div class="clbl">職安管理作為</div>
+          <div class="cval" style="font-size:32px;color:var(--c2)">零災害919天</div>
+          <div class="cdesc" style="font-size:20px">開工至115/4/30無工安事故，環保勞檢零罰單</div>
+        </div>
+        <div class="card c2b" style="padding:10px">
+          <div class="clbl">設計獎項</div>
+          <div class="cval" style="font-size:32px;color:var(--c2)">國家建築金質獎</div>
+          <div class="cyan" style="font-size:20px">2021第23屆 規劃設計類公共建築組</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div data-notes="本案綜合教學大樓新建工程，工區緊鄰高鐵動線，所以團隊特別在高鐵隧道內架設電子監控設備，全程監測安全變位，避免施工影響到高鐵營運安全。同時因應防災避難需求，把耐震用途係數提升到I=1.5，局部樑柱採用SRC結構，未來也能成為地區避難場所。團隊在環境保護上也下了不少功夫，鄰校舍那側設了1米、鄰房那側設了2米的隔音防塵網，還改用研磨機具來降低噪音震動，現場也即時監控粉塵和噪音數值。從開工到今年4月30日，連續919天零職災，環保和勞檢都是零罰單，算是相當不容易的成績"></div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════╗
+     ║  SLIDE 8 : 第2案 卓越性分析與入選理由          ║
+     ╚══════════════════════════════════════════════════╝ -->
+<div class="slide" id="s8" style="background:var(--bg-base)">
+<div class="pg">
+  <div class="pg-hdr">
+    <span class="pg-tag" style="color:var(--c2)">第2案</span>
+    <div>
+      <div class="pg-title" style="color:var(--c2)">卓越性分析與入選理由</div>
+      <div class="pg-sub">結構防震安全、都市介面縫合與高規格綠色營建，為本案核心卓越象徵</div>
+    </div>
+  </div>
+  <div class="pg-body" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div class="hxg">
+        <div class="hxc"><div class="stars" style="color:var(--c2)">★★★★☆</div><div class="hxl">品質功能 8.54</div><div class="hxv">落實PDCA工地品質管理。RC/SRC大跨距鋼構品質優良。</div></div>
+        <div class="hxc"><div class="stars" style="color:var(--c2)">★★★★☆</div><div class="hxl">節能減碳 8.60</div><div class="hxv">採低反射玻璃、一級能效空調、太陽能板。</div></div>
+        <div class="hxc"><div class="stars" style="color:var(--c2)">★★★★☆</div><div class="hxl">景觀美學 8.50</div><div class="hxv">獲2021國家建築金質獎肯定。簡約橘色烤漆格柵外觀。</div></div>
+        <div class="hxc"><div class="stars" style="color:var(--c2)">★★★★☆</div><div class="hxl">防災安全 8.60</div><div class="hxv">結構用途係數I=1.5、高鐵隧道電子監控，連續919天零職災。</div></div>
+        <div class="hxc"><div class="stars" style="color:var(--c2)">★★★★☆</div><div class="hxl">環境保育 8.33</div><div class="hxv">建構海綿校園設施（透水鋪面、複層植栽、雨水回收）。</div></div>
+        <div class="hxc"><div class="stars" style="color:var(--c2)">★★★★☆</div><div class="hxl">創新科技 8.70</div><div class="hxv">BIM模型檢討介面、人臉辨識管理。</div></div>
+      </div>
+      <!-- 照片輪播 -->
+      <div class="photo-slider  slider-small" id="sl4" style="height:200px">
+        <div class="photo-slides" id="sl4-track">
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case2-11.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case2-12.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case2-13.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case2-14.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case2-15.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case2-16.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case2-17.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case2-18.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case2-19.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case2-20.jpg"></div>
+        </div>
+        <button class="photo-prev" onclick="slidePhoto('sl4',-1)">‹</button>
+        <button class="photo-next" onclick="slidePhoto('sl4',1)">›</button>
+        <div class="photo-nav" id="sl4-nav"></div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div style="font-size:20px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-dim);font-weight:700;margin-bottom:2px">初評入選理由摘要</div>
+      <div class="feat-item">
+        <div class="feat-num" style="background:var(--c2)">1</div>
+        <div class="feat-txt">結構防震與精密安全監控極佳：大樓耐震用途係數達I=1.5具避難機能，大跨距（教室9-10米、階梯教室屋頂17.8米鋼構架）施工精良，並設置高鐵隧道電子變位監控，安全化解鄰近高風險施工考驗。</div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-num" style="background:var(--c2)">2</div>
+        <div class="feat-txt">卓越設計與都市介面縫合：榮獲2021年第23屆國家建築金質獎規劃設計類肯定；主動將市民大道側退縮5公尺形成帶狀開放空間，外觀採現代簡約橘色烤漆格柵遮陽，外牆以抿石子與烤漆鋁板取代磁磚延長壽命。</div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-num" style="background:var(--c2)">3</div>
+        <div class="feat-txt">永續校園建構：符合銀級綠建築指標，設置太陽能板、一級能效空調，建構海綿校園，設置透水鋪面、複層植栽、雨水回收等設施。</div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-num" style="background:var(--c2)">4</div>
+        <div class="feat-txt">智慧精進營建與公民參與：落實公共工程三級品管。全面導入BIM衝突檢討解決結構、機電、外牆等複雜介面，採用人臉辨識出工數據分析；工區對面大樓架設攝影機於YouTube頻道直播，落實資訊公開與透明度。</div>
+      </div>
+      <div class="card c2b" style="padding:10px 14px">
+        <div class="clbl">主辦機關管理特色</div>
+        <div class="cdesc">落實公共工程三級品管，整合校園營運、施工管理與鄰里溝通。透過多層級督導、工務會議、工程管理系統與雲端服務網強化透明度，並要求各級人員落實PDCA工地管理心法，積極降低對教學與居民的影響。</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div data-notes="本案在極度受限且持續營運的校園環境中展現的施工整合能力值得肯定。透過市民大道側退縮5公尺形成帶狀開放空間，友善縫合都市，外觀採用抿石子與烤漆鋁板格柵，捨棄易脫落的磁磚以維護校園長久安全。永續這部分，整個案子符合銀級綠建築標準，太陽能板、節能空調都有導入，雨水回收和透水鋪面也做了完整規劃，等於從節能到防汛都有考慮到。另外，團隊用BIM事先檢討各種介面衝突，工區對面還架了攝影機在YouTube直播，讓外界隨時都能看到工地狀況，整體來說，這個案子在各個面向都做得很扎實，故初評推薦入選。"></div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════╗
+     ║  SLIDE 9 : 第3案 封面                          ║
+     ╚══════════════════════════════════════════════════╝ -->
+<div class="slide splash bg-s3" id="s9">
+  <div class="splash-overlay" style="background:radial-gradient(ellipse at 40% 60%,rgba(191,112,64,.25),transparent 60%)"></div>
+  <div class="splash-ghost" style="color:#ffd4aa">第三案</div>
+  <div class="splash-inner">
+    <div class="splash-eye" style="color:rgba(255,212,170,.75)">CASE 03 · First-Class · 初評工程87.0 / 設計87.6 分</div>
+    <div class="splash-ttl" style="color:#f0ece4">臺北市立和平高級中學<br>教學大樓新建工程</div>
+    <div class="splash-sub" style="color:rgba(255,212,170,.85)">眷村記憶工匠磚雕・校園軸線翻轉・綠建築黃金級</div>
+    <div class="splash-tags">
+      <span class="stag" style="background:rgba(191,112,64,.25);border:1.5px solid rgba(220,140,80,.5);color:#ffd4aa">主辦：新工處</span>
+      <span class="stag" style="background:rgba(191,112,64,.25);border:1.5px solid rgba(220,140,80,.5);color:#ffd4aa">契約：19億881萬元</span>
+      <span class="stag" style="background:rgba(191,112,64,.25);border:1.5px solid rgba(220,140,80,.5);color:#ffd4aa">施工：三星營造・永龍企業</span>
+      <span class="stag" style="background:rgba(191,112,64,.25);border:1.5px solid rgba(220,140,80,.5);color:#ffd4aa">監造：邱永章建築師事務所</span>
+      <span class="stag" style="background:rgba(191,112,64,.25);border:1.5px solid rgba(220,140,80,.5);color:#ffd4aa">設計：邱永章建築師事務所</span>
+    </div>
+  </div>
+  <div data-notes="第3案是新工處主辦、邱永章建築師事務所設計監造、三星營造與永龍企業施工的和平高中教學大樓新建工程 。契約金額為19億881萬元，初評工程87分，而設計單位分數87.6分為本次五案最高 。本案在都市尺度上極具策略價值，透過空間重組，完美翻轉校園軸線，並將黃金級綠建築理念深度融入校園 。"></div>
+</div>
+<!-- ╔══════════════════════════════════════════════════╗
+     ║  SLIDE 10 : 第3案 工程概要與核心亮點           ║
+     ╚══════════════════════════════════════════════════╝ -->
+<div class="slide" id="s10" style="background:var(--bg-base)">
+<div class="pg">
+  <div class="pg-hdr">
+    <span class="pg-tag" style="color:var(--c3)">第3案</span>
+    <div>
+      <div class="pg-title" style="color:var(--c3)">工程概要與核心亮點</div>
+      <div class="pg-sub">和平高中教學大樓｜校園軸線翻轉，和平鴿磚雕與眷村記憶</div>
+    </div>
+  </div>
+  <div class="pg-body" style="display:grid;grid-template-columns:1.1fr 1fr;gap:14px">
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <!-- 照片輪播 -->
+      <div class="photo-slider slider-large" id="sl5" style="height:200px">
+        <div class="photo-slides" id="sl5-track">
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case3-01.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case3-02.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case3-03.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case3-04.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case3-05.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case3-06.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case3-07.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case3-08.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case3-09.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case3-10.jpg"></div>
+        </div>
+        <button class="photo-prev" onclick="slidePhoto('sl5',-1)">‹</button>
+        <button class="photo-next" onclick="slidePhoto('sl5',1)">›</button>
+        <div class="photo-nav" id="sl5-nav"></div>
+      </div>
+      <div class="chdr" style="border-color:rgba(191,112,64,.35);padding:10px 14px">
+        <div class="qfrow">
+          <div class="qf"><div class="qflbl">基地面積</div><div class="qfval">39,709㎡</div></div>
+          <div class="qf"><div class="qflbl">樓地板</div><div class="qfval">28,558㎡</div></div>
+          <div class="qf"><div class="qflbl">規模</div><div class="qfval">地上5層地下2層 3幢3棟 RC、鋼骨RC構造</div></div>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px">
+      <div style="font-size:20px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-dim);font-weight:700;margin-bottom:2px">核心亮點</div>
+      <div class="obs" style="border-color:var(--c3)">
+        <div class="obs-num" style="color:var(--c3)">亮點 01｜工匠技藝：和平鴿磚雕與眷村記憶</div>
+        <div class="obs-txt">基地原為居安新村眷村，廠商<strong style="color:var(--c3)">突破傳統砌磚技術，旋轉磚面角度推砌出「和平鴿」立體圖像</strong>；保留眷村磚瓦材料記憶；採環保圓柱紙模澆鑄一體成型清水混凝土圓柱，展現精湛工藝。</div>
+      </div>
+      <div class="obs" style="border-color:var(--c3)">
+        <div class="obs-num" style="color:var(--c3)">亮點 02｜都市尺度解題：校園軸線翻轉</div>
+        <div class="obs-txt">校門從臥龍街翻轉至<strong style="color:var(--c3)">辛亥路側</strong>，解決與大安國小、芳和國中同區的交通擁塞問題；通風採光井及浮力通風塔引入自然光與新鮮空氣至地下停車場；270格停車共享社區。</div>
+      </div>
+      <div class="obs" style="border-color:var(--c3)">
+        <div class="obs-num" style="color:var(--c3)">亮點 03｜生態永續：大榕樹保留與綠建築</div>
+        <div class="obs-txt">保留基地內<strong style="color:var(--c3)">成排大榕樹</strong>形塑中庭綠意；設置下挖階梯表演場、屋頂木作平台等多元學習空間；取得<strong style="color:var(--c3)">綠建築黃金級</strong>認證；工程查核3次均達甲等，建材進場抽驗434+146次。</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <div class="card c3b" style="padding:10px">
+          <div class="clbl">設計單位分數</div>
+          <div class="cval-lg" style="color:var(--c3);font-size:32px">87.6</div>
+          <div class="cdesc" style="font-size:20px">五案設計單位最高分</div>
+        </div>
+        <div class="card c3b" style="padding:10px">
+          <div class="clbl">綠建築</div>
+          <div class="cval" style="font-size:32px;color:var(--c3)">黃金級認證</div>
+          <div class="cdesc" style="font-size:20px">含太陽能、雨水回收、自然採光通風</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div data-notes="本案面對兩大挑戰：第一是都市交通尺度解題。原校門位於臥龍街，與大安國小、芳和國中重疊造成嚴重擁塞，團隊大膽將校門翻轉至辛亥路側，徹底解決地區交通痛點 。第二是人文歷史與精湛工藝的結合。基地原為居安新村眷村，施工廠商為了傳承記憶，突破傳統砌磚技術，旋轉磚面角度，手工推砌出『和平鴿』立體磚雕圖像 。同時，中庭採用環保圓柱紙模澆鑄一體成型的清水混凝土圓柱，搭配通風採光井與浮力通風塔，展現卓越的工法創新 。"></div>
+</div>
+
+
+<!-- ╔══════════════════════════════════════════════════╗
+     ║  SLIDE 11 : 第3案 卓越性分析與入選理由         ║
+     ╚══════════════════════════════════════════════════╝ -->
+<div class="slide" id="s11" style="background:var(--bg-base)">
+<div class="pg">
+  <div class="pg-hdr">
+    <span class="pg-tag" style="color:var(--c3)">第3案</span>
+    <div>
+      <div class="pg-title" style="color:var(--c3)">卓越性分析與入選理由</div>
+      <div class="pg-sub">工匠技藝與設計意涵高度融合；廠商無償提升建築抗震能力</div>
+    </div>
+  </div>
+  <div class="pg-body" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div class="hxg">
+        <div class="hxc"><div class="stars" style="color:var(--c3)">★★★★★</div><div class="hxl">品質功能 8.86★</div><div class="hxv">查核3次甲等，廠商無償可焊鋼筋提升耐震，先行模範樣間</div></div>
+        <div class="hxc"><div class="stars" style="color:var(--c3)">★★★★☆</div><div class="hxl">節能減碳 8.60</div><div class="hxv">綠建築黃金級、西曬阻隔深遮陽、自然採光通風井</div></div>
+        <div class="hxc"><div class="stars" style="color:var(--c3)">★★★★★</div><div class="hxl">景觀美學 8.66</div><div class="hxv">設計分88最高，和平鴿磚雕、大榕樹中庭、眷村記憶</div></div>
+        <div class="hxc"><div class="stars" style="color:var(--c3)">★★★★☆</div><div class="hxl">防災安全 8.53</div><div class="hxv">防空避難空間、CO濃度偵測、工安科技降災設施</div></div>
+        <div class="hxc"><div class="stars" style="color:var(--c3)">★★★★★</div><div class="hxl">環境保育 8.93★</div><div class="hxv">大榕樹保留、綠建築黃金級、老樹融入校園</div></div>
+        <div class="hxc"><div class="stars" style="color:var(--c3)">★★★★☆</div><div class="hxl">創新科技 8.80</div><div class="hxv">BIM衝突檢討、CCTV高風險監看、環保圓柱紙模工法</div></div>
+      </div>
+      <!-- 照片輪播 -->
+      <div class="photo-slider  slider-small" id="sl6" style="height:200px">
+        <div class="photo-slides" id="sl6-track">
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case3-11.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case3-12.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case3-13.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case3-14.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case3-15.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case3-16.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case3-17.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case3-18.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case3-19.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case3-20.jpg"></div>
+        </div>
+        <button class="photo-prev" onclick="slidePhoto('sl6',-1)">‹</button>
+        <button class="photo-next" onclick="slidePhoto('sl6',1)">›</button>
+        <div class="photo-nav" id="sl6-nav"></div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div style="font-size:20px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-dim);font-weight:700;margin-bottom:2px">初評入選理由摘要</div>
+      <div class="feat-item">
+        <div class="feat-num" style="background:var(--c3)">1</div>
+        <div class="feat-txt">以「和平展翅」造型語彙，整合高中、國中教學、行政、圖書視聽空間，設計完整度與公共效益均具高度競爭力</div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-num" style="background:var(--c3)">2</div>
+        <div class="feat-txt">保留居安新村眷村磚瓦及六角窗特色；施工廠商旋轉磚面砌出和平鴿立體圖像；採環保圓柱紙模澆鑄清水混凝土圓柱——工匠技藝與設計意涵高度融合</div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-num" style="background:var(--c3)">3</div>
+        <div class="feat-txt">翻轉校園軸線至辛亥路側，解決臥龍街人車擁塞問題；通風採光井創造明亮地下停車空間；270格停車開放社區；大榕樹保留形塑中庭；綠建築黃金級</div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-num" style="background:var(--c3)">4</div>
+        <div class="feat-txt">廠商無償採用可焊鋼筋提升耐震；工程查核3次甲等；設置多元學習空間（下挖階梯表演場、屋頂木作平台）</div>
+      </div>
+      <div class="card c3b" style="padding:10px 14px">
+        <div class="clbl">廠商特別作為</div>
+        <div class="cdesc">無償採用可焊鋼筋提升建築抗震能力（延長使用期）；先進行模範樣間，檢討配置再調整，品質管控最細緻；建材抽驗434+146次，落實監造責任。</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div data-notes="本案的『品質功能』與『環境保育』雙雙獲得初評委員們的高分肯定 。廠商自主無償採用可焊鋼筋提升耐震，且建材進場抽驗高達580次 。團隊在施工前先製作『模範樣間』檢討配置，將施工品質控管到最細緻 。社會效益部分，地下停車場提供270格車位開放社區共享，中庭成排大榕樹100%完整保留，再搭配下挖式階梯表演場，創造出與社區共榮的永續環境 。初評小組認為，本案設計完整度與施工工藝皆屬頂尖，品質功能與環境保育均奪得最高分，校園軸線翻轉更具備宏觀的都市交通效益，歷史記憶與技藝高度融合，故初評推薦入選。"></div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════╗
+     ║  SLIDE 12 : 第4案 封面                         ║
+     ╚══════════════════════════════════════════════════╝ -->
+<div class="slide splash bg-s4" id="s12">
+  <div class="splash-overlay" style="background:radial-gradient(ellipse at 62% 32%,rgba(138,95,191,.25),transparent 60%)"></div>
+  <div class="splash-ghost" style="color:#e0ccff">第四案</div>
+  <div class="splash-inner">
+    <div class="splash-eye" style="color:rgba(224,204,255,.75)">CASE 04 · Second-Class · 初評 86.5 / 86.8 分</div>
+    <div class="splash-ttl" style="color:#f0ece4">國際會議廳、演講廳<br>及簡報室精裝修工程</div>
+    <div class="splash-sub" style="color:rgba(224,204,255,.85)">TAF聲學驗證・WELL健康建築・BEMS能源管理</div>
+    <div class="splash-tags">
+      <span class="stag" style="background:rgba(138,95,191,.25);border:1.5px solid rgba(170,120,220,.5);color:#e0ccff">主辦：臺北自來水事業處</span>
+      <span class="stag" style="background:rgba(138,95,191,.25);border:1.5px solid rgba(170,120,220,.5);color:#e0ccff">契約：9,437萬元</span>
+      <span class="stag" style="background:rgba(138,95,191,.25);border:1.5px solid rgba(170,120,220,.5);color:#e0ccff">施工：福清營造・承龍水電</span>
+      <span class="stag" style="background:rgba(138,95,191,.25);border:1.5px solid rgba(170,120,220,.5);color:#e0ccff">監造：九典聯合建築師事務所</span>
+      <span class="stag" style="background:rgba(138,95,191,.25);border:1.5px solid rgba(170,120,220,.5);color:#e0ccff">設計：九典聯合建築師事務所</span>
+    </div>
+  </div>
+  <div data-notes="第4案是北水處主辦、九典聯合建築師事務所設計監造、福清營造與承龍水電施工的國際會議廳精裝修工程 。契約金額為9,437萬元，是本次唯一參選的第二級工程 。本案位於公館「水園區新天地」的多目標綜合大樓內，定位為高難度的室內專業場館系統整合工程，涵蓋348席國際會議廳、133席演講廳及54席簡報室 ，旨在打造具備國際多國語言同步翻譯能力的頂級智慧場館 。"></div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════╗
+     ║  SLIDE 13 : 第4案 工程概要與核心亮點           ║
+     ╚══════════════════════════════════════════════════╝ -->
+<div class="slide" id="s13" style="background:var(--bg-base)">
+<div class="pg">
+  <div class="pg-hdr">
+    <span class="pg-tag" style="color:var(--c4)">第4案</span>
+    <div>
+      <div class="pg-title" style="color:var(--c4)">工程概要與核心亮點</div>
+      <div class="pg-sub">國際會議廳精裝修工程｜聲學達TAF第三方驗證標準</div>
+    </div>
+  </div>
+  <div class="pg-body" style="display:grid;grid-template-columns:1.1fr 1fr;gap:14px">
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <!-- 照片輪播 -->
+      <div class="photo-slider slider-large" id="sl7" style="height:200px">
+        <div class="photo-slides" id="sl7-track">
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case4-01.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case4-02.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case4-03.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case4-04.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case4-05.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case4-06.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case4-07.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case4-08.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case4-09.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case4-10.jpg"></div>
+        </div>
+        <button class="photo-prev" onclick="slidePhoto('sl7',-1)">‹</button>
+        <button class="photo-next" onclick="slidePhoto('sl7',1)">›</button>
+        <div class="photo-nav" id="sl7-nav"></div>
+      </div>
+      <div class="chdr" style="border-color:var(--c4);padding:10px 14px">
+        <div class="qfrow">
+          <div class="qf"><div class="qflbl">國際會議廳：</div><div class="qfval">280坪・348席</div></div>
+          <div class="qf"><div class="qflbl">演講廳：</div><div class="qfval">66坪・133席</div></div>
+          <div class="qf"><div class="qflbl">簡報室：</div><div class="qfval">35坪・54席</div></div>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px">
+      <div style="font-size:20px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-dim);font-weight:700;margin-bottom:2px">核心亮點</div>
+      <div class="obs" style="border-color:var(--c4)">
+        <div class="obs-num" style="color:var(--c4)">亮點 01｜TAF認證第三方聲學驗證通過</div>
+        <div class="obs-txt">施工前以朝陽科大聲學模型電腦模擬，訂定階段性自主測試計畫；完工後由<strong style="color:var(--c4)">TAF認證第三方公正單位驗證聲學性能</strong>，皆符合設計標準（國際會議廳迴響時間0.8～1.2秒）。加大前後排距110cm（業界95～105cm），加寬椅距55cm。</div>
+      </div>
+      <div class="obs" style="border-color:var(--c4)">
+        <div class="obs-num" style="color:var(--c4)">亮點 02｜WELL健康建築・BEMS能源整合</div>
+        <div class="obs-txt">呼應國際<strong style="color:var(--c4)">WELL健康建築標準</strong>（材料、熱舒適、光、精神、空氣、聲音六面向）；納入大樓BEMS建築能源管理系統即時監控能耗；預計申請室內空氣品質金級認證；防汛演練已執行11次。</div>
+      </div>
+      <div class="obs" style="border-color:var(--c4)">
+        <div class="obs-num" style="color:var(--c4)">亮點 03｜水意象色彩・ALL-IN-ONE一鍵整合</div>
+        <div class="obs-txt">座椅採<strong style="color:var(--c4)">不均勻水意象色彩計畫</strong>打破單一色調（局部更換不致色差突兀）；各廳平板整合全廳燈具、影視、音響、情境，<strong style="color:var(--c4)">一鍵切換</strong>大幅提升維護便利；4國語言同步翻譯，383吋P3主動光源彩幕。</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <div class="card c4b" style="text-align:center;padding:10px">
+          <div class="clbl">主廳席次</div>
+          <div class="cval-lg" style="color:var(--c4);font-size:32px">348</div>
+          <div class="cdesc" style="font-size:20px">348席（含5席無障礙）</div>
+        </div>
+        <div class="card c4b" style="text-align:center;padding:10px">
+          <div class="clbl">年預估收益</div>
+          <div class="cval-lg" style="color:var(--c4);font-size:32px">2,900萬</div>
+          <div class="cdesc" style="font-size:20px">以40%出租率估算</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div data-notes="本案核心技術挑戰在於『極致聲學表現與多系統整合』 。團隊在施工前先以朝陽科大聲學模型進行電腦模擬，完工後更是全台首創由『TAF認證之第三方公正單位』進行聲學性能實測驗證，確認迴響時間精準控制在0.8～1.2秒的國際高標準 。空間設計更全面呼應國際WELL健康建築的材料、光、聲音等六大面向 ，並透過ALL-IN-ONE平板整合全廳燈具、影視與音響，實現一鍵切換情境，大幅降低後續維護難度 。"></div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════╗
+     ║  SLIDE 14 : 第4案 卓越性分析與入選理由         ║
+     ╚══════════════════════════════════════════════════╝ -->
+<div class="slide" id="s14" style="background:var(--bg-base)">
+<div class="pg">
+  <div class="pg-hdr">
+    <span class="pg-tag" style="color:var(--c4)">第4案</span>
+    <div>
+      <div class="pg-title" style="color:var(--c4)">卓越性分析與入選理由</div>
+      <div class="pg-sub">本次唯一第二級工程；專業場館系統整合深度，是精裝修工程類型的卓越示範</div>
+    </div>
+  </div>
+  <div class="pg-body" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div class="hxg">
+        <div class="hxc"><div class="stars" style="color:var(--c4)">★★★★☆</div><div class="hxl">品質功能 8.54</div><div class="hxv">BIM界面檢核，三級品管落實，模組化設備易維護</div></div>
+        <div class="hxc"><div class="stars" style="color:var(--c4)">★★★★☆</div><div class="hxl">節能減碳 8.60</div><div class="hxv">BEMS管理、建築能效1級、LED情境照明智能控制</div></div>
+        <div class="hxc"><div class="stars" style="color:var(--c4)">★★★★☆</div><div class="hxl">景觀美學 8.40</div><div class="hxv">水意象座椅色彩計畫，空間識別鮮明，無障礙友善</div></div>
+        <div class="hxc"><div class="stars" style="color:var(--c4)">★★★★★</div><div class="hxl">防災安全 9.00★</div><div class="hxv">WELL健康建築標準、防汛演練11次、綠建材、UL認證</div></div>
+        <div class="hxc"><div class="stars" style="color:var(--c4)">★★★☆☆</div><div class="hxl">環境保育 8.33</div><div class="hxv">綠建材標章、北美UL生態標誌認證材料</div></div>
+        <div class="hxc"><div class="stars" style="color:var(--c4)">★★★★☆</div><div class="hxl">創新科技 8.70</div><div class="hxv">EASE聲學模擬、ALL-IN-ONE控制、P3彩幕、TAF驗證</div></div>
+      </div>
+      <!-- 照片輪播 -->
+      <div class="photo-slider  slider-small" id="sl8" style="height:200px">
+        <div class="photo-slides" id="sl8-track">
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case4-11.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case4-12.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case4-13.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case4-14.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case4-15.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case4-16.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case4-17.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case4-18.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case4-19.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case4-20.jpg"></div>
+        </div>
+        <button class="photo-prev" onclick="slidePhoto('sl8',-1)">‹</button>
+        <button class="photo-next" onclick="slidePhoto('sl8',1)">›</button>
+        <div class="photo-nav" id="sl8-nav"></div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div style="font-size:20px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-dim);font-weight:700;margin-bottom:2px">初評入選理由摘要</div>
+      <div class="feat-item">
+        <div class="feat-num" style="background:var(--c4)">1</div>
+        <div class="feat-txt">WELL健康建築六面向標準落實、TAF第三方聲學驗證通過、防汛演練11次、綠建材標章及北美UL生態標誌認證材料</div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-num" style="background:var(--c4)">2</div>
+        <div class="feat-txt">精準回應大中小型專業場館需求：348席國際會議廳（迴響0.8~1.2秒）、133席演講廳、54席簡報室完整配置，整合無障礙席、視線、後場、同步翻譯等</div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-num" style="background:var(--c4)">3</div>
+        <div class="feat-txt">水意象座椅色彩設計創建空間識別；ALL-IN-ONE平板整合全廳系統一鍵切換；4國語言同步翻譯；383吋P3主動光源彩幕（非投影式）——使用者體驗設計細膩</div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-num" style="background:var(--c4)">4</div>
+        <div class="feat-txt">納入BEMS建築能源管理即時監控；預計申請室內空氣品質金級認證；設備採模組化設計便於維修；以40%出租率估算年創收2,900萬元，具良好公共投資效益</div>
+      </div>
+      <div class="card c4b" style="padding:10px 14px">
+        <div class="clbl">場館規格</div>
+        <div class="cdesc">國際會議廳：348席・迴響0.8~1.2秒<br>4國語言同步翻譯・60組無線接收機<br>P3 383吋LED彩幕•75”直播同步顯示<br>ALL-IN-ONE 操作介面• 情境燈光模式</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div data-notes="本案現場引進了BEMS建築能源管理系統即時監控能耗，使建築能效達到1級，並採用北美UL生態認證綠建材 。在公共效益上，北水處以40%的出租率保守估算，本案年收可達2,900萬元，具備極佳的公共投資回報率 。初評小組認為，本案作為高難度專業精裝修工程，首創引進TAF第三方聲學實實測驗證，完美演繹了健康建築與智慧場館的深度整合，營運效益顯著，故初評推薦入選。"></div>
+</div>
+<!-- ╔══════════════════════════════════════════════════╗
+     ║  SLIDE 15 : 第5案 封面                         ║
+     ╚══════════════════════════════════════════════════╝ -->
+<div class="slide splash bg-s5" id="s15">
+  <div class="splash-overlay" style="background:radial-gradient(ellipse at 50% 55%,rgba(58,155,138,.25),transparent 60%)"></div>
+  <div class="splash-ghost" style="color:#aaeedd">第五案</div>
+  <div class="splash-inner">
+    <div class="splash-eye" style="color:rgba(170,238,221,.75)">CASE 05 · Third-Class · 初評 85.8 / 85.7 分</div>
+    <div class="splash-ttl" style="color:#f0ece4">114年度大安森林公園<br>6號公廁新建工程</div>
+    <div class="splash-sub" style="color:rgba(170,238,221,.85)">樹冠意象清水模精工・自行導入BIM・防災轉換機制</div>
+    <div class="splash-tags">
+      <span class="stag" style="background:rgba(58,155,138,.25);border:1.5px solid rgba(80,185,165,.5);color:#aaeedd">主辦：公園處</span>
+      <span class="stag" style="background:rgba(58,155,138,.25);border:1.5px solid rgba(80,185,165,.5);color:#aaeedd">契約：2,370萬元</span>
+      <span class="stag" style="background:rgba(58,155,138,.25);border:1.5px solid rgba(80,185,165,.5);color:#aaeedd">施工：聚人營造股份有限公司</span>
+      <span class="stag" style="background:rgba(58,155,138,.25);border:1.5px solid rgba(80,185,165,.5);color:#aaeedd">監造：吳坤霖建築師事務所</span>
+      <span class="stag" style="background:rgba(58,155,138,.25);border:1.5px solid rgba(80,185,165,.5);color:#aaeedd">設計：吳坤霖建築師事務所</span>
+    </div>
+  </div>
+  <div data-notes="最後一案，是公園處主辦、吳坤霖建築師事務所設計監造、聚人營造施工的大安森林公園6號公廁新建工程 。契約金額僅2,370萬元，屬於規模最小的第三級工程 。設計上以『森林之腎』為核心理念，打造一座全齡友善的地景公廁 。"></div>
+</div>
+<!-- ╔══════════════════════════════════════════════════╗
+     ║  SLIDE 16 : 第5案 工程概要與核心亮點           ║
+     ╚══════════════════════════════════════════════════╝ -->
+<div class="slide" id="s16" style="background:var(--bg-base)">
+<div class="pg">
+  <div class="pg-hdr">
+    <span class="pg-tag" style="color:var(--c5)">第5案</span>
+    <div>
+      <div class="pg-title" style="color:var(--c5)">工程概要與核心亮點</div>
+      <div class="pg-sub">大安森林公園6號公廁｜第三級工程自行導入BIM，不預先通知查核仍達甲等83分</div>
+    </div>
+  </div>
+  <div class="pg-body" style="display:grid;grid-template-columns:1.1fr 1fr;gap:14px">
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <!-- 照片輪播 -->
+      <div class="photo-slider slider-large" id="sl9" style="height:200px">
+        <div class="photo-slides" id="sl9-track">
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case5-01.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case5-02.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case5-03.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case5-04.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case5-05.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case5-06.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case5-07.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case5-08.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case5-09.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case5-10.jpg"></div>
+        </div>
+        <button class="photo-prev" onclick="slidePhoto('sl9',-1)">‹</button>
+        <button class="photo-next" onclick="slidePhoto('sl9',1)">›</button>
+        <div class="photo-nav" id="sl9-nav"></div>
+      </div>
+      <div class="chdr" style="border-color:rgba(58,155,138,.35);padding:10px 14px">
+        <div class="qfrow">
+          <div class="qf"><div class="qflbl">基地面積</div><div class="qfval">259,337㎡</div></div>
+          <div class="qf"><div class="qflbl">樓地板面積</div><div class="qfval">75㎡</div></div>
+          <div class="qf"><div class="qflbl">規模</div><div class="qfval">地上1層1幢1棟 RC、鋼骨造</div></div>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px">
+      <div style="font-size:20px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-dim);font-weight:700;margin-bottom:2px">核心亮點</div>
+      <div class="obs" style="border-color:var(--c5)">
+        <div class="obs-num" style="color:var(--c5)">亮點 01｜第三級工程自行導入BIM</div>
+        <div class="obs-txt">廠商<strong style="color:var(--c5)">自行比照第一級工程導入BIM</strong>，建置高精度3D模型進行虛擬組立與參數化分割，工廠客製化裁切，現場組裝一次到位。</div>
+      </div>
+      <div class="obs" style="border-color:var(--c5)">
+        <div class="obs-num" style="color:var(--c5)">亮點 02｜清水模松木紋路一次澆置成功</div>
+        <div class="obs-txt">採<strong style="color:var(--c5)">窄格板細緻修飾弧形模板曲率</strong>，松木紋模板先行小區域試做確認；圓弧形幾何全斷面<strong style="color:var(--c5)">一次澆置消弭冷縫風險</strong>，拆模後木紋肌理完整呈現，牆體與造型一體成形。</div>
+      </div>
+      <div class="obs" style="border-color:var(--c5)">
+        <div class="obs-num" style="color:var(--c5)">亮點 03｜自研APP與防災轉換機制</div>
+        <div class="obs-txt">廠商自研<strong style="color:var(--c5)">手機APP一鍵登打施工日報自動生成</strong>，溝通效率提升50%，行政減少30%；平時優質公廁，大規模天災時啟動內建熱水器，<strong style="color:var(--c5)">轉換為災民盥洗設施</strong>（大安森林公園防災公園定位）。</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <div class="card c5b" style="padding:10px">
+          <div class="clbl">查核成績</div>
+          <div class="cval-lg" style="color:var(--c5);font-size:32px">甲等</div>
+          <div class="cdesc" style="font-size:20px">不預先通知仍達83分甲等</div>
+        </div>
+        <div class="card c5b" style="padding:10px">
+          <div class="clbl">數位效益</div>
+          <div class="cval" style="font-size:32px;color:var(--c5)">溝通效率↑50%</div>
+          <div class="cdesc" style="font-size:20px">行政作業減少30%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div data-notes="本案完美展現了『小案件大創新』的卓越精神 。雖然只是兩千萬級別的小工程，廠商卻主動比照第一級工程『自主導入BIM技術』，建置高精度3D模型進行非典型圓弧量體與樹狀鋼構的虛擬組立，工廠精準裁切，現場組裝一次到位，無需二次拆改 。在工法上，團隊大膽挑戰高難度清水模，利用窄格板修飾弧形模板曲率，成功完成『松木紋全斷面一次澆置』，拆模後木紋肌理完美呈現，毫無冷縫 。此外，廠商自主研發手機APP管理系統，一鍵自動生成施工日報，行政作業減少30%，展現精緻化的數位管理 。"></div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════╗
+     ║  SLIDE 17 : 第5案 卓越性分析與入選理由         ║
+     ╚══════════════════════════════════════════════════╝ -->
+<div class="slide" id="s17" style="background:var(--bg-base)">
+<div class="pg">
+  <div class="pg-hdr">
+    <span class="pg-tag" style="color:var(--c5)">第5案</span>
+    <div>
+      <div class="pg-title" style="color:var(--c5)">卓越性分析與入選理由</div>
+      <div class="pg-sub">規模最小但精神最具示範性——小案件大創新，公廁美學化友善化地景化的典範</div>
+    </div>
+  </div>
+  <div class="pg-body" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div class="hxg">
+        <div class="hxc"><div class="stars" style="color:var(--c5)">★★★★☆</div><div class="hxl">品質功能 8.66</div><div class="hxv">不預先通知查核仍達甲等83分，如期完工</div></div>
+        <div class="hxc"><div class="stars" style="color:var(--c5)">★★★★☆</div><div class="hxl">節能減碳 8.60</div><div class="hxv">太陽能、雨水回收、感應燈控、自然採光通風設計</div></div>
+        <div class="hxc"><div class="stars" style="color:var(--c5)">★★★★★</div><div class="hxl">景觀美學 8.60</div><div class="hxv">樹冠意象、清水模精工、夜間燈箱，翻轉公廁印象</div></div>
+        <div class="hxc"><div class="stars" style="color:var(--c5)">★★★☆☆</div><div class="hxl">防災安全 8.53</div><div class="hxv">防災公園定位、災時公廁轉換盥洗設施機制</div></div>
+        <div class="hxc"><div class="stars" style="color:var(--c5)">★★★★☆</div><div class="hxl">環境保育 8.80</div><div class="hxv">鐵刀木外牆自然融合、石英磚防滑、被動式通風</div></div>
+        <div class="hxc"><div class="stars" style="color:var(--c5)">★★★★★</div><div class="hxl">創新科技 8.70</div><div class="hxv">自行導入BIM、自研APP、縮時攝影、雲端管理</div></div>
+      </div>
+      <!-- 照片輪播 -->
+      <div class="photo-slider  slider-small" id="s20" style="height:200px">
+        <div class="photo-slides" id="s20-track">
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case5-11.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case5-12.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case5-13.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case5-14.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case5-15.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case5-16.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case5-17.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case5-18.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case5-19.jpg"></div>
+          <div class="photo-slide"><img class="photo-slide-img" src="photos/case5-20.jpg"></div>
+        </div>
+        <button class="photo-prev" onclick="slidePhoto('s20',-1)">‹</button>
+        <button class="photo-next" onclick="slidePhoto('s20',1)">›</button>
+        <div class="photo-nav" id="s20-nav"></div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div style="font-size:20px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-dim);font-weight:700;margin-bottom:2px">初評入選理由摘要</div>
+      <div class="feat-item">
+        <div class="feat-num" style="background:var(--c5)">1</div>
+        <div class="feat-txt">雖屬第三級建築工程，廠商自行比照第一級導入BIM，建置高精度3D模型進行非典型圓弧量體與樹狀鋼構的虛擬組立與參數化分割，精準轉化為工廠加工圖說</div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-num" style="background:var(--c5)">2</div>
+        <div class="feat-txt">自主研發雲端管理APP；一鍵施工日報自動生成，溝通效率提升50%，行政減少30%；結合縮時攝影全程記錄，展現小型工程精緻化數位管理的可能性</div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-num" style="background:var(--c5)">3</div>
+        <div class="feat-txt">設計以「公廁景觀化、友善化、地景化」為核心：樹冠樹枝弧形屋頂、夜間燈箱、木紋清水模呼應公園林蔭；改善女廁排隊、無障礙動線、親子使用，具公共服務精緻化示範意義</div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-num" style="background:var(--c5)">4</div>
+        <div class="feat-txt">大安森林公園為台北市防災公園，本案規劃災時轉換機制（公廁→避難盥洗設施）；不預先通知查核仍達甲等83分；如期完工359日曆天，汛期主動放倒圍籬加固設備</div>
+      </div>
+      <div class="card c5b" style="padding:10px 14px">
+        <div class="clbl">設計核心理念</div>
+        <div class="cdesc">「森林之腎」——以樹冠、樹枝、弧形屋頂回應大安森林公園林蔭環境；全齡友善設計改善女廁排隊、無障礙動線、親子使用；高硬度天然鐵刀木外牆色澤隨時間自然融入環境。</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div data-notes="本案最獨特的社會效益在於它結合了大安森林公園作為『防災公園』的定位，首創『災時應變轉換機制』：平時是服務市民的景觀公廁，一旦發生大規模天災，內部建置的熱水器可立即啟動，快速轉換為災民的避難盥洗設施 。空間規劃大幅改善了女廁排隊、無障礙與親子動線，外牆則採用天然鐵刀木，使其色澤自然融入林蔭環境 。在施工期間，面對市府『不預先通知的突擊施工查核』，依然拿下83分甲等的優異成績，並在359日曆天內如期完工 。初評小組認為，本案規模雖小，但廠商自主導入BIM、挑戰高難度清水模精工，更前瞻性地結合防災公園功能，是不折不扣的精緻化公共建築典範，故初評推薦入選。"></div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════╗
+     ║  SLIDE 18 : 卓越匠師 封面                      ║
+     ╚══════════════════════════════════════════════════╝ -->
+<div class="slide splash bg-sm" id="s18">
+  <div class="splash-overlay" style="background:radial-gradient(ellipse at 50% 50%,rgba(58,122,138,.28),transparent 65%)"></div>
+  <div class="splash-ghost" style="color:#aaccdd">匠師獎</div>
+  <div class="splash-inner">
+    <div class="splash-eye" style="color:rgba(170,204,221,.75)">Master Craftsman Award · 卓越匠師獎 · 初評 85.8 分</div>
+    <div class="splash-ttl" style="color:#f0ece4;font-size:52px;margin-bottom:6px">黃東開</div>
+    <div style="font-size:19px;color:rgba(170,204,221,.85);margin-bottom:5px">大陸工程股份有限公司　資深副總經理</div>
+    <div style="font-size:15px;color:rgba(240,236,228,.45);margin-bottom:24px">參選工程：臺北市南港區南港機廠基地公共住宅統包工程</div>
+    <div style="font-family:'Noto Serif TC',serif;font-size:20px;color:#d4a017;line-height:1.85;max-width:580px;margin:0 auto;padding:18px 24px;background:rgba(212,160,23,.08);border-left:4px solid #d4a017;text-align:left;border-radius:0 5px 5px 0">
+      「從第一線工程人，到推動產業進化」
+    </div>
+  </div>
+  <!-- 右側圖片 -->
+  <div class="case06-photo">
+      <img src="photos/case6-01.png" alt="黃東開">
+  </div>
+  <div data-notes="看完了五個卓越的工程案件，接下來向各位介紹本次推薦的卓越匠師獎入選人——黃東開先生 。黃東開先生是南港機廠公宅的施工廠商，大陸工程股份有限公司的資深副總經理，從最基層的施工人員一路淬鍊至高階管理職，致力於推動產業進化。"></div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════╗
+     ║  SLIDE 19 : 卓越匠師 貢獻與入選特色            ║
+     ╚══════════════════════════════════════════════════╝ -->
+<div class="slide" id="s19" style="background:var(--bg-base)">
+<div class="pg">
+  <div class="pg-hdr">
+    <span class="pg-tag" style="color:var(--cm)">卓越匠師</span>
+    <div>
+      <div class="pg-title" style="color:var(--cm)">工程歷程與三維貢獻矩陣</div>
+      <div class="pg-sub">影響超越個案，乘數型的匠師貢獻</div>
+    </div>
+  </div>
+  <div class="pg-body" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+    <div style="display:flex;flex-direction:column;gap:9px">
+      <!-- 職涯時間軸 -->
+      <div style="font-size:20px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-dim);font-weight:700;margin-bottom:4px">職涯歷程（1992→2026，35年）</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:6px;margin-bottom:8px">
+        <div class="card cmb" style="text-align:center;padding:8px 6px">
+          <div style="font-size:18px;color:var(--cm);font-weight:700">1992</div>
+          <div style="font-size:28px;margin:4px 0">🔧</div>
+          <div style="font-size:18px;color:var(--ink-dim)">現場人員<br>第一線施工</div>
+        </div>
+        <div class="card cmb" style="text-align:center;padding:8px 6px">
+          <div style="font-size:18px;color:var(--cm);font-weight:700">2000</div>
+          <div style="font-size:28px;margin:4px 0">📦</div>
+          <div style="font-size:18px;color:var(--ink-dim)">採購人員<br>資源整合</div>
+        </div>
+        <div class="card cmb" style="text-align:center;padding:8px 6px">
+          <div style="font-size:18px;color:var(--cm);font-weight:700">2005</div>
+          <div style="font-size:28px;margin:4px 0">🏗️</div>
+          <div style="font-size:18px;color:var(--ink-dim)">工地主管<br>大型專案</div>
+        </div>
+        <div class="card cmb" style="text-align:center;padding:8px 6px">
+          <div style="font-size:18px;color:var(--cm);font-weight:700">2015</div>
+          <div style="font-size:28px;margin:4px 0">🏢</div>
+          <div style="font-size:18px;color:var(--ink-dim)">高階主管<br>組織治理</div>
+        </div>
+      </div>
+      <!-- 三維貢獻 -->
+      <div class="ctrb">
+        <div class="ctrb-hdr">
+          <div class="ctrb-ico">⚙️</div>
+          <div class="ctrb-ttl">工法創新——降低缺工依賴，提升施工品質</div>
+          <div class="ctrb-stat">全台多工地實際應用</div>
+        </div>
+        <div class="ctrb-body">
+          <span class="ctag2">系統鋁模（廢棄物↓・不須打底即可貼磚）</span>
+          <span class="ctag2">鋼筋預組（工序前移・降低現場風險）</span>
+          <span class="ctag2">機電管線預組（標準化・減少誤差）</span>
+          <span class="ctag2">系統施工架（防墜設計）</span>
+          <span class="ctag2">外牆爬昇架（風險前控）</span>
+        </div>
+      </div>
+      <div class="ctrb">
+        <div class="ctrb-hdr">
+          <div class="ctrb-ico">🛡️</div>
+          <div class="ctrb-ttl">工安系統——把風險移出現場或提前攔截</div>
+          <div class="ctrb-stat">月均40,000次提案・62場次診斷</div>
+        </div>
+        <div class="ctrb-body">
+          <span class="ctag2">DWB工安雲端提案（整合工程師・移工・分包商）</span>
+          <span class="ctag2">外部工安專家每月隨機巡檢，累計62場次</span>
+        </div>
+      </div>
+      <div class="ctrb">
+        <div class="ctrb-hdr">
+          <div class="ctrb-ico">📚</div>
+          <div class="ctrb-ttl">知識傳承——讓個人經驗成為組織資產</div>
+          <div class="ctrb-stat">近200人受訓・每週千人次登入</div>
+        </div>
+        <div class="ctrb-body">
+          <span class="ctag2">四大專業課程（規劃・時程・鋼筋・鋼構）</span>
+          <span class="ctag2">建築知識平台（知識庫・線上課程・工程師助手）</span>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px">
+      <div class="mquote">
+        「簡單的事重複做，成就專業；<br>重複的事用心做，成就價值。」<br>
+        <span style="font-size:16px;opacity:.6;font-weight:400">——黃東開</span>
+      </div>
+  <!-- 右側圖片 -->
+  <div class="case06-photo2">
+      <img src="photos/case6-02.png" alt="黃東開">
+  </div>
+      <div style="font-size:20px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-dim);font-weight:700;margin-bottom:4px">入選特色</div>
+      <div class="feat-item">
+        <div class="feat-num" style="background:var(--cm)">1</div>
+        <div class="feat-txt">從現場工程師到資深副總經理，35年建築工程生命週期完整歷練，具備從第一線施工到組織策略的全視野，是真正從土地上長出來的工程人</div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-num" style="background:var(--cm)">2</div>
+        <div class="feat-txt">五項工法創新（系統鋁模、鋼筋預組、管線預組、系統施工架、爬昇架）均已在全台多個工地實際應用，具可複製性與產業示範價值，影響超越個案</div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-num" style="background:var(--cm)">3</div>
+        <div class="feat-txt">建立DWB工安雲端提案系統，月均40,000次提案，整合工程師、移工、分包商；外部專家診斷62場次——將工安文化從個人要求轉化為組織制度</div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-num" style="background:var(--cm)">4</div>
+        <div class="feat-txt">建立知識平台與四大專業課程，培訓近200位同仁，每週千人次登入；將35年工程智慧系統化為可學習、可傳承的組織資產——乘數型的匠師貢獻</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div data-notes="黃東開先生擁有高達35年的工程資歷，其卓越在於他將一線的經驗轉化為系統性的產業貢獻 。他推動了5項關鍵工法創新，並創立了工地安全『DWB系統』，親自主持了62場專家診斷，達到月均40,000次工安提案的驚人成效 。在知識傳承上，他開設專業課程，親自培訓了近200位工程人才，其建立的數位工安平台，每週登入高達上千人次，影響力已遠遠跨越了單一工程案件 。他所堅持的個人工程哲學：『簡單的事重複做，成就專業；重複的事用心做，成就價值』。成功將一生懸命的匠人精神轉化為企業與組織文化，為第一線工程人員樹立了最高標準 。"></div>
+</div>
+
+<!-- ════ SLIDE 20: 匠師 精神傳承 ════ -->
+<div class="slide" id="s20" style="background:var(--bg-base)">
+<div class="pg">
+  <div class="pg-hdr">
+    <span class="pg-tag" style="color:var(--cm)">卓越匠師</span>
+    <div>
+      <div class="pg-title" style="color:var(--cm)">匠師精神與初評建議</div>
+      <div class="pg-sub">將個人工程哲學轉化為組織文化</div>
+    </div>
+  </div>
+  <div class="pg-body" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <!-- 評分細節 -->
+      <div class="card cmb" style="padding:14px 18px">
+        <div class="clbl">初評評分資訊</div>
+        <div style="display:flex;align-items:baseline;gap:12px;margin-top:4px">
+          <div class="cval-lg" style="color:var(--cm);font-size:40px">85.8</div>
+          <div style="font-size:13px;color:var(--ink-dim);line-height:1.7">總平均分數達85分門檻<br>任一委員均≥80分</div>
+        </div>
+      </div>
+      <!-- 近年公共工程 -->
+      <div class="card cmb" style="padding:12px 16px">
+        <div class="clbl">近年代表公共工程</div>
+        <div class="cdesc" style="font-size:16px;line-height:1.9">
+          ▸ 南港機廠社宅統包工程（本次參選工程）<br>
+          ▸ 廣慈社會住宅E標工程<br>
+          ▸ 台灣高鐵左營站、多個大型建築工程
+        </div>
+      </div>
+      <div class="card cmb" style="padding:10px 14px">
+        <div class="clbl">近五年代表獲獎</div>
+        <div class="cdesc" style="font-size:16px;line-height:1.9">
+          第25屆金質獎建築類優等（南港機廠社宅1區）<br>
+          第21屆金質獎建築類優等（廣慈社宅E標）<br>
+          2021臺北市工程卓越獎｜2020金安獎工安管理卓越
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px">
+      <div style="font-size:20px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-dim);font-weight:700;margin-bottom:4px">初評建議</div>
+      <div class="feat-item">
+        <div class="feat-num" style="background:var(--cm)">①</div>
+        <div class="feat-txt"><strong>符合遴選精神：</strong>屬第一線工程團隊相關人員，35年從基層施工到高階管理，對工程施工技術、工程管理業務表現傑出</div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-num" style="background:var(--cm)">②</div>
+        <div class="feat-txt"><strong>貢獻超越個案：</strong>工法創新（5項）、工安制度（DWB系統・專家診斷62場）、知識傳承（課程培訓近200人・平台千人次週登入）——影響力已達產業層級</div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-num" style="background:var(--cm)">③</div>
+        <div class="feat-txt"><strong>量化成果有力：</strong>帶領團隊連獲金質獎優等兩次、金安獎、臺北市工程卓越獎；月均40,000次工安提案、近200人受訓——有明確的量化指標支撐</div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-num" style="background:var(--cm)">④</div>
+        <div class="feat-txt"><strong>傳承型匠人精神：</strong>「簡單的事重複做，成就專業；重複的事用心做，成就價值」——將個人工程哲學轉化為組織文化，是當代工程界的精神示範</div>
+      </div>
+      <div class="success" style="margin-top:4px;font-size:20px">
+        <strong>初評會議：</strong>黃東開先生初評分數85.8分，貢獻方式具系統性與傳承性，獲初評入選推薦。
+      </div>
+    </div>
+  </div>
+</div>
+<div data-notes="黃東開先生初評分數獲得85.8分，各委員評分均在80分以上，通過初評入選建議門檻 。其經手的重大公共工程除了本次參選的南港機廠公宅，還有廣慈公宅E標工程、台灣高鐵左營站等。近五年內，他帶領團隊連獲兩次國家建築金質獎優等、金安獎以及臺北市工程卓越獎 。初評小組全體委員一致認為，黃東開先生的技術資歷深厚、量化成果極為扎實，且具備產業傳承精神，貢獻方式具系統性與傳承性，故初評推薦入選。"></div>
+</div>
+
+<!-- ════ SLIDE 21: 感謝頁 ════ -->
+<div class="slide slide-thanks" id="s21">
+  <div class="cover-grid"></div>
+  <div class="cover-glow"></div>
+  <div class="thanks-inner">
+    <div style="font-family:'Noto Serif TC',serif;font-size:72px;font-weight:900;color:#3a7abf;letter-spacing:.1em;margin-bottom:12px">簡報結束</div>
+    <div style="font-family:'Noto Serif TC',serif;font-size:42px;color:#d4a017;margin-bottom:30px;letter-spacing:.15em">感謝聆聽</div>
+    <div style="width:80px;height:2px;background:linear-gradient(90deg,transparent,#d4a017,transparent);margin:0 auto 30px"></div>
+    <div style="font-size:28px;color:rgba(90,159,212,0.9);line-height:2.3;letter-spacing:.1em">
+      115年度臺北市政府公共工程卓越獎暨卓越匠師獎<br>
+      建築工程類複評會議｜報告人：洪廸光 召集人<br>
+      初評委員：溫琇玲・林志峯・李文芳・徐茂卿
+    </div>
+  </div>
+  <div data-notes="以上是建築工程類初評小組針對五個工程案件與一位卓越匠師的綜合報告 。在此特別感謝初評委員溫琇玲、林志峯、李文芳、徐茂卿委員的專業審查與付出 。台北市的公共工程正因為有這些追求極致的團隊，才能不斷翻轉、創新。簡報結束，謝謝大家 。"></div>
+</div>
+<!-- ╔══════════════════════════════════════════════════╗
+     ║  NAV + SPEAKER + SCRIPT                        ║
+     ╚══════════════════════════════════════════════════╝ -->
+<button class="spk-btn" id="spkBtn" onclick="toggleSpk()">🎤 主講人說明</button>
+<div class="spk-panel" id="spkPanel">
+  <div class="spk-inner">
+    <div class="spk-lbl">主講人<br>說明</div>
+    <div class="spk-txt" id="spkTxt">請切換投影片以查看對應口語說明。</div>
+  </div>
+</div>
+
+<div class="nav-bar">
+  <button class="nav-btn" id="prevBtn" onclick="go(cur-1)">← 上一頁</button>
+  <div class="nav-center">
+    <div class="nav-dots" id="navDots"></div>
+    <div class="nav-page">第 <span id="curPg">1</span> 頁，共 <span id="totPg">?</span> 頁</div>
+  </div>
+  <button class="nav-btn" id="nextBtn" onclick="go(cur+1)">下一頁 →</button>
+</div>
+
+<script>
+var cur = 0;
+var slides = [];
+var spkOpen = false;
+
+window.addEventListener('DOMContentLoaded', function() {
+  slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  document.getElementById('totPg').textContent = slides.length;
+  buildDots();
+  go(0);
+});
+
+function buildDots() {
+  var el = document.getElementById('navDots');
+  el.innerHTML = '';
+  slides.forEach(function(_, i) {
+    var d = document.createElement('div');
+    d.className = 'dot';
+    d.title = '第' + (i + 1) + '頁';
+    d.onclick = (function(n) { return function() { go(n); }; })(i);
+    el.appendChild(d);
+  });
+}
+
+function go(n) {
+  if (!slides.length) return;
+  n = Math.max(0, Math.min(n, slides.length - 1));
+  slides[cur].classList.remove('active');
+  cur = n;
+  slides[cur].classList.add('active');
+
+  document.getElementById('curPg').textContent = cur + 1;
+  document.getElementById('prevBtn').disabled = (cur === 0);
+  document.getElementById('nextBtn').disabled = (cur === slides.length - 1);
+
+  var dots = document.getElementById('navDots').querySelectorAll('.dot');
+  dots.forEach(function(d, i) {
+    d.className = 'dot' + (i === cur ? ' active' : '');
+  });
+
+  var notesEl = slides[cur].querySelector('[data-notes]');
+  document.getElementById('spkTxt').textContent =
+    notesEl ? notesEl.getAttribute('data-notes') : '（本頁無主講人說明）';
+
+  if (cur === 2) setTimeout(drawRadar, 60);
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') {
+    e.preventDefault(); go(cur + 1);
+  } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+    e.preventDefault(); go(cur - 1);
+  } else if (e.key === 'Home') { go(0); }
+  else if (e.key === 'End') { go(slides.length - 1); }
+  else if (e.key === 's' || e.key === 'S') { toggleSpk(); }
+});
+
+document.addEventListener('click', function(e) {
+  if (e.target.closest('.nav-bar') || e.target.closest('.spk-btn') || e.target.closest('.spk-panel')) return;
+  var x = e.clientX / window.innerWidth;
+  if (x > 0.65) go(cur + 1);
+  else if (x < 0.35) go(cur - 1);
+});
+
+function toggleSpk() {
+  spkOpen = !spkOpen;
+  document.getElementById('spkPanel').className = 'spk-panel' + (spkOpen ? ' open' : '');
+  document.getElementById('spkBtn').textContent = spkOpen ? '✕ 關閉說明' : '🎤 主講人說明';
+}
+
+function drawRadar() {
+  var canvas = document.getElementById('radarCanvas');
+  const MIN_SCORE = 7.0;
+  const MAX_SCORE = 10.0;
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var W = canvas.width, H = canvas.height;
+  var cx = W / 2, cy = H / 2, R = 220;
+  var labels = ['品質功能', '景觀美學', '節能減碳', '防災安全', '環境保育', '創新科技'];
+  var cases = [
+    { color: 'rgba(90,159,212,0.9)',  fill: 'rgba(90,159,212,0.12)',  vals: [8.86,8.50,9.33,8.67,8.67,9.00] },
+    { color: 'rgba(98,176,122,0.9)',  fill: 'rgba(98,176,122,0.12)',  vals: [8.83,8.90,9.00,8.67,8.73,8.60] },
+    { color: 'rgba(217,143,98,0.9)',  fill: 'rgba(217,143,98,0.12)',  vals: [8.94,9.00,8.93,8.47,8.93,8.80] },
+    { color: 'rgba(165,127,212,0.9)', fill: 'rgba(165,127,212,0.12)', vals: [8.54,9.10,8.40,9.00,8.80,8.70] },
+    { color: 'rgba(98,176,162,0.9)',  fill: 'rgba(98,176,162,0.12)',  vals: [8.66,9.10,8.60,8.33,8.53,8.80] }
+  ];
+  var n = labels.length;
+  var step = Math.PI * 2 / n;
+  var score = MIN_SCORE + (MAX_SCORE - MIN_SCORE) * ring / 5;
+  ctx.clearRect(0, 0, W, H);
+  for (var ring = 0; ring <= 5; ring++) {
+    ctx.beginPath();
+    for (var i = 0; i < n; i++) {
+      var a = -Math.PI / 2 + i * step;
+      var r = R * ring / 5;
+      i === 0 ? ctx.moveTo(cx + Math.cos(a)*r, cy + Math.sin(a)*r)
+              : ctx.lineTo(cx + Math.cos(a)*r, cy + Math.sin(a)*r);
+    }
+    ctx.closePath();
+    ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+    ctx.lineWidth = 1; ctx.stroke();
+  }
+labels.forEach(function(lbl, i) {
+  var a = -Math.PI / 2 + i * step;
+  
+  // 軸線（可保留）
+  ctx.beginPath();
+  ctx.moveTo(cx, cy);
+  ctx.lineTo(cx + Math.cos(a)*R, cy + Math.sin(a)*R);
+  ctx.strokeStyle = 'rgba(255,255,255,0.15)';
+  ctx.lineWidth = 1;
+  ctx.stroke();
+
+  // === 重點修改：標籤文字 ===
+  ctx.fillStyle = '#2c2c2c';           // 深色文字（推薦）
+  // ctx.fillStyle = '#444';           // 或者用這個
+  ctx.font = '20px "Noto Sans TC", "Microsoft YaHei", Arial, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+
+  var labelRadius = R + -10;   // 再往外推一點，避免擠到圖形
+  var x = cx + Math.cos(a) * labelRadius;
+  var y = cy + Math.sin(a) * labelRadius;
+
+  ctx.fillText(lbl, x, y);
+});
+  cases.forEach(function(c) {
+    ctx.beginPath();
+    c.vals.forEach(function(v, i) {
+    var a = -Math.PI / 2 + i * step;
+    var ratio =
+        (v - MIN_SCORE) /
+        (MAX_SCORE - MIN_SCORE);
+    var r = R * ratio;
+      i === 0 ? ctx.moveTo(cx + Math.cos(a)*r, cy + Math.sin(a)*r)
+              : ctx.lineTo(cx + Math.cos(a)*r, cy + Math.sin(a)*r);
+    });
+    ctx.closePath();
+    ctx.fillStyle = c.fill; ctx.fill();
+    ctx.strokeStyle = c.color; ctx.lineWidth = 2; ctx.stroke();
+    c.vals.forEach(function(v, i) {
+    var a = -Math.PI / 2 + i * step;
+    var ratio =
+        (v - MIN_SCORE) /
+        (MAX_SCORE - MIN_SCORE);
+    var r = R * ratio;
+      ctx.beginPath(); ctx.arc(cx + Math.cos(a)*r, cy + Math.sin(a)*r, 3.5, 0, Math.PI*2);
+      ctx.fillStyle = c.color; ctx.fill();
+    });
+  });
+}
+// 照片輪播自動播放
+let currentSlideshows = [];
+
+function initPhotoSliders() {
+    document.querySelectorAll('.photo-slider').forEach(slider => {
+        const slidesContainer = slider.querySelector('.photo-slides');
+        const dots = slider.querySelectorAll('.photo-nav-dot');
+        let currentIndex = 0;
+        let autoTimer = null;
+
+        const totalSlides = slidesContainer.children.length;
+
+        function goToSlide(index) {
+            currentIndex = (index + totalSlides) % totalSlides;
+            slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+            
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentIndex);
+            });
+        }
+
+        // 左右按鈕
+        const prevBtn = slider.querySelector('.photo-prev');
+        const nextBtn = slider.querySelector('.photo-next');
+        
+        if (prevBtn) prevBtn.addEventListener('click', () => {
+            goToSlide(currentIndex - 1);
+            resetAutoPlay();
+        });
+        if (nextBtn) nextBtn.addEventListener('click', () => {
+            goToSlide(currentIndex + 1);
+            resetAutoPlay();
+        });
+
+        // 點擊圓點
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                goToSlide(i);
+                resetAutoPlay();
+            });
+        });
+
+        // 自動輪播（每2秒）
+        function startAutoPlay() {
+            if (autoTimer) clearInterval(autoTimer);
+            autoTimer = setInterval(() => {
+                goToSlide(currentIndex + 1);
+            }, 2000);
+        }
+
+        function resetAutoPlay() {
+            clearInterval(autoTimer);
+            startAutoPlay();
+        }
+
+        // 滑鼠懸停暫停
+        slider.addEventListener('mouseenter', () => clearInterval(autoTimer));
+        slider.addEventListener('mouseleave', startAutoPlay);
+
+        startAutoPlay();
+        currentSlideshows.push({slider, goToSlide});
+    });
+}
+
+// 在頁面載入完成後初始化
+window.addEventListener('load', () => {
+    initPhotoSliders();
+});
+</script>
+</body>
+</html>
