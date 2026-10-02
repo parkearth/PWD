@@ -100,7 +100,7 @@ class Game extends Phaser.Scene{
    fx(this.add.text(x,y,txt,{fontSize:'22px',color:'#fff'})).setOrigin(.5).setDepth(1001);
    b.on('pointerdown',()=>{if(k==='j')this.jreq=1;else this.ctl[k]=1});
    ['pointerup','pointerout'].forEach(ev=>b.on(ev,()=>{if(k!=='j')this.ctl[k]=0}))};
-  B(46,H-46,'◀','l',30);B(118,H-46,'▶','r',30);B(W-130,H-44,'跳','j',34);B(W-50,H-62,'射','f',34);B(W-50,H-140,'▲','u',26);
+  B(46,H-46,'◀','l',30);B(118,H-46,'▶','r',30);B(W-130,H-44,'跳','j',34);B(W-50,H-62,'射','f',34);B(82,H-110,'▲','u',26);
   this.k=this.input.keyboard.addKeys('W,A,S,D,SPACE,J,X,K');this.cu=this.input.keyboard.createCursorKeys();
   this.input.keyboard.on('keydown',e=>{const n=+e.key;if(n>=1&&n<=5&&this.own[n])this.cur=n});
   this.input.on('pointerdown',()=>{AC=AC||new(window.AudioContext||window.webkitAudioContext)();AC.resume();
@@ -145,7 +145,7 @@ class Game extends Phaser.Scene{
  fire(){const w=WEAPONS[this.cur],a=this.aim,sc=this.big?Z*1.35:Z,p=this.p,mx=p.x+Math.cos(a)*30,my=p.y-20*sc+Math.sin(a)*30;beep(300+this.cur*120,.06);
   for(let i=0;i<w.p;i++){const aa=a+(Math.random()-.5)*(w.sp||0);
    const b=this.add.sprite(mx,my,'dot').setTint(w.c).setBlendMode(Phaser.BlendModes.ADD).setScale(w.big?7:4,w.big?4:1.6).setRotation(aa).setDepth(950);
-   Object.assign(b,{vx:Math.cos(aa)*w.s*1.3,vy:Math.sin(aa)*w.s*1.3,d:w.d,pi:w.pierce,life:w.life||800,hit:new Set(),col:w.c,tr:this.cur>=3})}
+   Object.assign(b,{vx:Math.cos(aa)*w.s*1.3,vy:Math.sin(aa)*w.s*1.3,d:w.d,pi:w.pierce,life:w.life||800,hit:new Set(),col:w.c,tr:this.cur>=3}); this.bl.push(b);}
   const f=this.add.sprite(mx,my,'glow').setTint(w.c).setBlendMode(Phaser.BlendModes.ADD).setScale(.8+this.cur*.25).setDepth(960);
   this.tweens.add({targets:f,alpha:0,scale:f.scale*1.6,duration:90,onComplete:()=>f.destroy()});
   this.burst(mx,my,w.c,2+this.cur,160);if(this.cur>=3)this.cameras.main.shake(70,.0015*this.cur)}
@@ -233,6 +233,6 @@ class Game extends Phaser.Scene{
  }
 }
 new Phaser.Game({type:Phaser.AUTO,width:W,height:H,backgroundColor:'#07080c',pixelArt:true,
- scale:{mode:Phaser.Scale.FIT,autoCenter:Phaser.Scale.CENTER_BOTH},input:{activePointers:4},scene:Game});
+ scale:{mode:Phaser.Scale.ENVELOP,autoCenter:Phaser.Scale.CENTER_BOTH},input:{activePointers:4},scene:Game});
 if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js'));
 </script></body></html>
