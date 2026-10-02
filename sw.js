@@ -1,4 +1,4 @@
-const C = 'tgta-v2';
+const C = 'tgta-v3';
 const PHASER = 'https://cdnjs.cloudflare.com/ajax/libs/phaser/3.80.1/phaser.min.js';
 const FILES = ['./', './index.html', './manifest.json', './icon.svg', PHASER];
 
