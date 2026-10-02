@@ -14,12 +14,16 @@ const WEAPONS=[null,
  {n:'霰彈槍',d:1,r:560,s:380,p:5,c:0x55aaff,sp:.6,life:500},
  {n:'雷射槍',d:3,r:240,s:620,p:1,c:0xcc55ff,pierce:1},
  {n:'電漿砲',d:7,r:420,s:500,p:3,c:0xffcc33,sp:.25,pierce:1,big:1}];
-const PAL={k:'#111',w:'#fff',b:'#3b8cff',B:'#1a4fb0',r:'#e03a3a',R:'#8a1c1c',y:'#fc3',s:'#f1c9a0',d:'#222',o:'#f80',g:'#667'};
-const PIX=[
-['p',["..dddd..",".dssssd.",".dskssk.",".dssssd.","..ssss..",".bbbbbb.","bbbbbbbb","sbbbbbbs",".bbbbbb.",".dd..dd.",".dd..dd.",".kk..kk."]],
-['bird',["...bb.....","..bbbb....",".bbwkbb...",".bbbbbboo.","bbbbbbb...","BbbbbbbB..",".BbbbbB...","..BBBB....","...o.o....","...o.o...."]],
-['bear',[".rr....rr...","rrrr..rrrr..",".rrrrrrrr...",".rrwkrwkr...",".rrrrrrrr...",".rrrkkrrr...","..rrrrrr....",".rrrrrrrr...","rrrrrrrrrr..","rr.rrrr.rr..","rr.rrrr.rr..","RR......RR.."]],
-['boss',["..ddddsddd..",".dddddsdddd.",".dssssssssd.",".dskssssksd.",".dssssssssd.","..sssRRsss..","...ssssss...","..wwwrrwww..",".kkkwrrwkkk.","kkkkkrrkkkkk","kkkkkrrkkkkk","skkkkkkkkkks",".kkkkkkkkkk.",".kkkk..kkkk.",".kkkk..kkkk.",".dddd..dddd."]]];
+const PAL={k:'#111',w:'#fff',b:'#3b8cff',B:'#1a4fb0',l:'#8fc4ff',n:'#12306e',r:'#e03a3a',R:'#8a1c1c',q:'#5a1010',y:'#fc3',Y:'#c90',s:'#f1c9a0',S:'#d9a577',h:'#2a1b14',d:'#222',o:'#f80',g:'#667',G:'#3a3d4a',W:'#ccd',e:'#ffb02e',E:'#c06a10',p:'#ff9aa8',c:'#f4ecd8',a:'#4ff',u:'#a050e0',U:'#5a2a90',m:'#6f6',M:'#2a9a3a',z:'#8a5a2b'};
+const PIX=[['p',[".....rrrrrr.....", "....rrrrrrrr....", "....hssssssh....", "....hskssksh....", "....hssssssh....", "....hsSppSsh....", ".....SssssS.....", "......ssss......", "...bbbbbbbbbb...", "..bbbllbbllbbb..", ".sbbbbbbbbbbbbs.", ".sbbbbwwwwbbbbs.", ".sBbbbwwwwbbbBs.", "..BbbbbbbbbbbB..", "...nnnnnnnnnn...", "...nnnnnnnnnn...", "...nnnn..nnnn...", "...nnnn..nnnn...", "...nnnn..nnnn...", "...WWWW..WWWW...", "..kkkkk..kkkkk.."]],
+['bird',[".......bbb......", "......bbbbb.....", ".....bbbbbbb....", ".....bbwkbbbee..", ".....bbbbbbEE...", "..b.bbbbbbbb....", ".bbbllbbbbbbl...", "bbbbllllbbbb....", ".BbbbllllbbB....", "..BBbbbbbbBB....", "...BBBBBBBB.....", ".....e...e......", "....ee..ee......", "....EE..EE......"]],
+['bear',["..rr........rr..", ".rrpr......rprr.", ".rrrrrrrrrrrrrr.", "rrrrrrrrrrrrrrrr", "rrrwkrrrrrkwrrrr", "rrrrrrrrrrrrrrrr", "rrrrrrccccrrrrrr", "rrrrrrckkcrrrrrr", "rrrrrrcqqcrrrrrr", ".rrrrrrrrrrrrrr.", "RrrrrrrrrrrrrrrR", "RrrrrrrrrrrrrrrR", ".RrrrrrrrrrrrrR.", "..rrrr....rrrr..", "..rrrr....rrrr..", "..RRRR....RRRR.."]],
+['boss',["......dddddddd......", ".....dddddddddd.....", "....dddddssddddd....", "...dddssssssssddd...", "...dssssssssssssd...", "...dsGGGssssGGGsd...", "...dsGkGssssGkGsd...", "...dsGGGssssGGGsd...", "...dssssssssssssd...", "....sssssSSsssss....", "....ssssqqqqssss....", ".....ssssssssss.....", ".......ssssss.......", "....wwwwwwwwwwww....", "kkkkkkkwwrrwwkkkkkkk", "kkkkkkkkwrrwkkkkkkkk", "kkkkkkkkkrrkkkkkkkkk", "skkkkkkkkrrkkkkkkkks", "skkkkkkkkrrkkkkkkkks", ".kkkkkkkkrrkkkkkkkk.", ".kkkkkkkkkkkkkkkkkk.", "..kkkkkkkkkkkkkkkk..", "...GGGGGGGGGGGGGG...", "..GGGGGGG..GGGGGGG..", "..GGGGGGG..GGGGGGG..", "..GGGGGGG..GGGGGGG..", "..kkkkkkk..kkkkkkk..", "kkkkkkkkk..kkkkkkkkk"]],
+['w1',["................", "..WWWWWWWWW.....", "..WWWWWWWWWW....", "..GGGGGGGGG.....", "..GGGG..G.......", "..kkk...........", "..kkk...........", "..kk............"]],
+['w2',["................", "....mmmmmmmmmmm.", "..mmmMMMMMMMMMMM", "..GGGGGGGGGGGGG.", "..kk.GG.kk......", "..kk.GG.kk......", "..kk....kk......", "................"]],
+['w3',["................", "................", "..WWWWWWWWWWWWWW", "..GGGGGGGGGGGGGG", "zzzzzzzGaaaaG...", "zzzzzzz.kk......", ".zzzz...........", "................"]],
+['w4',["................", "......aa........", "..uuuuuuuuuaaaa.", ".uuUUUUUUUuaaaa.", "..UUUUUUUUUGGGG.", "..UU.uu.UU......", "..UU............", "................"]],
+['w5',["...yy...........", "..yyyyyyyyyyyy..", ".yyYYYYYYYYYyyyy", ".yYGGGGGGGGGYooo", ".yYGGGGGGGGGYooo", ".yyYYYYYYYYYyyyy", "..yyyyyyyyyyyy..", "...yy.....kk...."]]];
 function mk(sc,key,rows,px){const t=sc.textures.createCanvas(key,rows[0].length*px,rows.length*px),x=t.getContext();
  rows.forEach((r,j)=>[...r].forEach((ch,i)=>{const c=PAL[ch];if(c){x.fillStyle=c;x.fillRect(i*px,j*px,px,px)}}));t.refresh()}
 // ---- 音效（WebAudio 合成，可開關）----
@@ -32,9 +36,10 @@ const ST={fontSize:'14px',color:'#fff',stroke:'#000',strokeThickness:3};
 
 class Game extends Phaser.Scene{
  create(){
-  PIX.forEach(([k,r])=>mk(this,k,r,3));mk(this,'dot',['ww','ww'],2);
+  PIX.forEach(([k,r])=>mk(this,k,r,2));mk(this,'dot',['ww','ww'],2);
+  {const gt=this.textures.createCanvas('glow',48,48),x=gt.getContext(),gr=x.createRadialGradient(24,24,2,24,24,24);gr.addColorStop(0,'rgba(255,255,255,.9)');gr.addColorStop(1,'rgba(255,255,255,0)');x.fillStyle=gr;x.fillRect(0,0,48,48);gt.refresh()}
   this.bg();
-  this.p=this.add.sprite(W/2,520,'p').setOrigin(.5,1);
+  this.p=this.add.sprite(W/2,520,'p').setOrigin(.5,1);this.pw=this.add.sprite(W/2,500,'w1').setOrigin(.25,.5);this.aim=0;
   Object.assign(this,{hp:5,own:[0,1,0,0,0,0],cur:1,score:0,en:[],bl:[],eb:[],dr:[],t:0,nf:0,ns:0,nb:300000,inv:0,over:false,jp:-1,jo:{x:0,y:0}});
   this.gf=this.add.graphics().setDepth(999);
   this.ht=this.add.text(8,6,'',ST).setDepth(1000);
@@ -43,7 +48,7 @@ class Game extends Phaser.Scene{
   this.mb.on('pointerdown',()=>{mute=!mute;localStorage.setItem('mute',mute?'1':'0');this.mb.setText(mute?'🔇':'🔊')});
   this.slots=[1,2,3,4,5].map(i=>{const x=130+(i-1)*42,y=H-28;
    const r=this.add.rectangle(x,y,36,36,0x111111).setStrokeStyle(3,TC[i]).setInteractive().setDepth(1000);
-   const n=this.add.text(x,y,i,{fontSize:'16px',color:hex(TC[i])}).setOrigin(.5).setDepth(1001);
+   const n=this.add.sprite(x,y,'w'+i).setScale(.8).setDepth(1001);
    r.on('pointerdown',()=>{if(this.own[i])this.cur=i});return {r,n}});
   this.k=this.input.keyboard.addKeys('W,A,S,D');this.cu=this.input.keyboard.createCursorKeys();
   this.input.keyboard.on('keydown',e=>{const n=+e.key;if(n>=1&&n<=5&&this.own[n])this.cur=n});
@@ -70,14 +75,14 @@ class Game extends Phaser.Scene{
  msg(s){this.mt.setText(s).setAlpha(1);this.tweens.add({targets:this.mt,alpha:0,delay:1500,duration:600})}
  fire(a){const w=WEAPONS[this.cur];beep(300+this.cur*120,.06);
   for(let i=0;i<w.p;i++){const aa=a+(Math.random()-.5)*(w.sp||0);
-   const b=this.add.sprite(this.p.x,this.p.y-20,'dot').setTint(w.c).setScale(w.big?4:1.6).setDepth(950);
+   const b=this.add.sprite(this.p.x+Math.cos(a)*18,this.p.y-24+Math.sin(a)*18,'dot').setTint(w.c).setScale(w.big?4:1.6).setDepth(950);
    Object.assign(b,{vx:Math.cos(aa)*w.s,vy:Math.sin(aa)*w.s,d:w.d,pi:w.pierce,life:w.life||900,hit:new Set()});this.bl.push(b)}}
  spawn(k){const m=this.t/60000,r=Math.random();let x,y;
   if(k==='boss'){x=W/2;y=GY+30}
   else if(r<.4){x=-20;y=GY+40+Math.random()*(H-GY-110)}
   else if(r<.8){x=W+20;y=GY+40+Math.random()*(H-GY-110)}else{x=Math.random()*W;y=GY+10}
   let key,hp,sp,sc=1,cls=0;
-  if(k==='boss'){key='boss';hp=400;sp=38;sc=2.6;cls=3}
+  if(k==='boss'){key='boss';hp=400;sp=38;sc=2.2;cls=3}
   else{const bird=Math.random()<.5,q=Math.random();key=bird?'bird':'bear';hp=bird?2:4;sp=bird?75:48;
    cls=q<Math.min(.07,.01+m*.01)?2:q<Math.min(.3,.06+m*.03)?1:0;
    sc=[1,1.8,2.8][cls];hp=hp*[1,4,10][cls]*(1+m*.15);sp*=[1,.8,.65][cls]}
@@ -91,8 +96,10 @@ class Game extends Phaser.Scene{
   if(c===2)tier=[3,4,4,5][Math.random()*4|0];
   if(c===3)tier=5;
   this.score+=[10,50,200,1000][c];beep(90,.12,'sawtooth',.07);
-  if(tier){const d=this.add.text(e.x,e.y-14,'★'+tier,{fontSize:'18px',color:hex(TC[tier]),stroke:'#000',strokeThickness:4}).setOrigin(.5).setDepth(900);
-   Object.assign(d,{by:e.y-14,tier,dl:this.t+15000});this.dr.push(d)}
+  if(tier){const g=this.add.sprite(e.x,e.y-14,'glow').setTint(TC[tier]).setScale(1.4).setDepth(899);
+   const d=this.add.sprite(e.x,e.y-14,'w'+tier).setScale(1.4).setDepth(900);
+   this.tweens.add({targets:g,alpha:.3,yoyo:true,repeat:-1,duration:450});
+   Object.assign(d,{by:e.y-14,tier,dl:this.t+15000,g});this.dr.push(d)}
   e.destroy()}
  hurt(){this.hp--;this.inv=this.t+1000;beep(120,.25,'sawtooth',.08);
   this.p.setTint(0xff4444);this.time.delayedCall(150,()=>this.p.clearTint());
@@ -116,7 +123,9 @@ class Game extends Phaser.Scene{
   // 自動瞄準最近的怪物、無限彈藥
   let ne=null,nd=1e9;for(const e of this.en){const dd=Math.hypot(e.x-p.x,e.y-p.y);if(dd<nd){nd=dd;ne=e}}
   const w=WEAPONS[this.cur];
-  if(ne&&t>this.nf){this.nf=t+w.r;this.fire(Math.atan2(ne.y-ne.displayHeight/2-(p.y-20),ne.x-p.x))}
+  if(ne)this.aim=Math.atan2(ne.y-ne.displayHeight/2-(p.y-24),ne.x-p.x);else if(mx)this.aim=mx<0?Math.PI:0;
+  if(ne&&t>this.nf){this.nf=t+w.r;this.fire(this.aim)}
+  this.pw.setTexture('w'+this.cur).setPosition(p.x,p.y-24).setRotation(this.aim).setFlipY(Math.cos(this.aim)<0).setDepth(p.y+1).setAlpha(p.alpha);
   // 子彈
   for(const b of this.bl){b.x+=b.vx*d;b.y+=b.vy*d;b.life-=dt;
    for(const e of this.en){if(e.dead||b.hit.has(e))continue;
@@ -134,10 +143,10 @@ class Game extends Phaser.Scene{
    if(Math.hypot(s.x-p.x,s.y-p.y+18)<14&&t>this.inv){s.life=0;this.hurt()}}
   this.eb=this.eb.filter(s=>{if(s.life<=0||s.x<-20||s.x>W+20||s.y<0||s.y>H+20){s.destroy();return false}return true});
   // 掉落
-  for(const o of this.dr){o.y=o.by+Math.sin(t/200)*3;
+  for(const o of this.dr){o.y=o.by+Math.sin(t/200)*3;o.g.y=o.y;
    if(Math.hypot(o.x-p.x,o.y-p.y+18)<26){o.dl=0;const n=o.tier;
     if(!this.own[n]){this.own[n]=1;if(n>this.cur)this.cur=n;this.msg('獲得 '+WEAPONS[n].n+'！')}else this.score+=50*n;beep(700+n*100,.15,'triangle',.07)}}
-  this.dr=this.dr.filter(o=>{if(t>o.dl){o.destroy();return false}return true});
+  this.dr=this.dr.filter(o=>{if(t>o.dl){o.g.destroy();o.destroy();return false}return true});
   // 生怪與 BOSS（每 5 分鐘一隻）
   if(t>this.ns){this.ns=t+Math.max(450,1300-t/90);this.spawn()}
   if(t>this.nb){this.nb+=300000;this.spawn('boss');this.msg('⚠ 中分頭西裝男登場！');beep(60,.6,'sawtooth',.1)}
